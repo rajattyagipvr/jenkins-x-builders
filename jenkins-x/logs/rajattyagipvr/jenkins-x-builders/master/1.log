@@ -1,0 +1,32 @@
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-k72b7-1[0m stage [32mbuild-base[0m and container [32mstep-credential-initializer-8lsw4[0m
+{"level":"warn","ts":1595833443.73488,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1595833443.7352564,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-k72b7-1[0m stage [32mbuild-base[0m and container [32mstep-working-dir-initializer-sn256[0m
+{"level":"warn","ts":1595833444.7316318,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1595833444.732803,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-k72b7-1[0m stage [32mbuild-base[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-k72b7-1[0m stage [32mbuild-base[0m and container [32mstep-create-dir-workspace-pfh64[0m
+{"level":"warn","ts":1595833471.8315947,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1595833471.832565,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p source\"; output "}
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-k72b7-1[0m stage [32mbuild-base[0m and container [32mstep-git-source-rajattyagipvr-jenkins-x-builder-k72b7-tcl6w[0m
+{"level":"warn","ts":1595833472.1007588,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1595833474.9823055,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/*************/jenkins-x-builders.git @ v2.1.113-1 in path /workspace/source"}
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-k72b7-1[0m stage [32mbuild-base[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-k72b7-1[0m stage [32mbuild-base[0m and container [32mstep-warm-cache[0m
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-k72b7-1[0m stage [32mbuild-base[0m and container [32mstep-build-and-push-jx2[0m
+[36mINFO[0m[0000] Downloading base image gcr.io/jenkinsxio/builder-base:0.0.83 
+[36mINFO[0m[0000] Error while retrieving image from cache: Get https://gcr.io/v2/token?scope=repository%3Ajenkinsxio%2Fbuilder-base%3Apull&service=gcr.io: invoking docker-credential-gcr: exit status 1; output: docker-credential-gcr/helper: could not retrieve GCR's access token: google: error getting credentials using GOOGLE_APPLICATION_CREDENTIALS environment variable: invalid character 'd' looking for beginning of value 
+[36mINFO[0m[0000] Downloading base image gcr.io/jenkinsxio/builder-base:0.0.83 
+error building image: Get https://gcr.io/v2/token?scope=repository%3Ajenkinsxio%2Fbuilder-base%3Apull&service=gcr.io: invoking docker-credential-gcr: exit status 1; output: docker-credential-gcr/helper: could not retrieve GCR's access token: google: error getting credentials using GOOGLE_APPLICATION_CREDENTIALS environment variable: invalid character 'd' looking for beginning of value
+[31m
+Pipeline failed on stage 'build-base' : container 'step-build-and-push-jx2'. The execution of the pipeline has stopped.[0m
