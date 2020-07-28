@@ -1,0 +1,28 @@
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-wlmst-2[0m stage [32mbuild-base[0m and container [32mstep-credential-initializer-n9brc[0m
+{"level":"warn","ts":1595938285.7649248,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1595938285.765288,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-wlmst-2[0m stage [32mbuild-base[0m and container [32mstep-working-dir-initializer-wwhz4[0m
+{"level":"warn","ts":1595938286.8934753,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1595938286.9015005,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-wlmst-2[0m stage [32mbuild-base[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-wlmst-2[0m stage [32mbuild-base[0m and container [32mstep-create-dir-workspace-45xfz[0m
+{"level":"warn","ts":1595938300.8430345,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1595938300.8439023,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p source\"; output "}
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-wlmst-2[0m stage [32mbuild-base[0m and container [32mstep-git-source-rajattyagipvr-jenkins-x-builder-wlmst-8lb76[0m
+{"level":"warn","ts":1595938301.2303777,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1595938304.0582802,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/*************/jenkins-x-builders.git @ v2.1.113-2 in path /workspace/source"}
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-wlmst-2[0m stage [32mbuild-base[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:599ab2081064e816514fdcfdcb6df6831bcd9a59
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-wlmst-2[0m stage [32mbuild-base[0m and container [32mstep-warm-cache[0m
+Failed warming cache: Failed to retrieve digest: 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-swiftbase:0.0.93: unsupported status code 401; body: Not Authorized
+
+[31m
+Pipeline failed on stage 'build-base' : container 'step-warm-cache'. The execution of the pipeline has stopped.[0m
