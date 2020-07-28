@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.83
+FROM 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93
 
 RUN yum install -y java-1.8.0-openjdk-devel && yum clean all
 
@@ -29,8 +29,8 @@ RUN mkdir -p $OPENAPI_DIR
 RUN mvn --no-transfer-progress org.apache.maven.plugins:maven-dependency-plugin:2.9:get -DremoteRepositories=$OPENAPI_REPO -Dartifact=$OPENAPI_GROUPID:$OPENAPI_ARTIFACTID:$OPENAPI_VERSION -Dtransitive=false -Ddest=$OPENAPI_CODEGEN_BIN
 
 # jx
-ENV JX_VERSION 2.1.113
-RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
+ENV JX_VERSION 2.1.112
+RUN curl -f -L https://github.com/rajattyagipvr/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
   mv jx /usr/bin/
 
 CMD ["mvn","-version"]

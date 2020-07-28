@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.83
+FROM 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93
 
 # asciidoctor
 

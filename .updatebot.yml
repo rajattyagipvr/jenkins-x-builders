@@ -1,10 +1,11 @@
 github:
   organisations:
-  - name: jenkins-x
-    includes:
-    - jenkins-x-platform
-  - name: jenkins-x-charts
+  # - name: rajattyagipvr
+  #   includes:
+  #   - jenkins-x-platform
+  - name: rajattyagipvr
     includes:
     - environment-controller
     - jx-build-templates
     - prow
+    - jxboot-helmfile-resources

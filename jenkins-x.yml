@@ -3,16 +3,54 @@ pipelineConfig:
   pipelines:
     pullRequest:
       pipeline:
+        # options:
+        #   containerOptions:
+        #     resources:
+        #       limits:
+        #         memory: 16Gi
+        #         cpu: 3
+        #       requests:
+        #         memory: 12Gi
+        #         cpu: 2
+        #   distributeParallelAcrossNodes: true
         options:
-          containerOptions:
-            resources:
-              limits:
-                memory: 16Gi
-                cpu: 3
-              requests:
-                memory: 12Gi
-                cpu: 2
           distributeParallelAcrossNodes: true
+          containerOptions:
+            env:
+            - name: DOCKER_REGISTRY
+              valueFrom:
+                configMapKeyRef:
+                  key: docker.registry
+                  name: jenkins-x-docker-registry
+            - name: GIT_AUTHOR_EMAIL
+              value: jenkins-x@googlegroups.com
+            - name: GIT_AUTHOR_NAME
+              value: jenkins-x-bot
+            - name: GIT_COMMITTER_EMAIL
+              value: jenkins-x@googlegroups.com
+            - name: GIT_COMMITTER_NAME
+              value: jenkins-x-bot
+            - name: XDG_CONFIG_HOME
+              value: /home/jenkins
+            name: ""
+            resources:
+              requests:
+                cpu: 1200m
+                memory: 6Gi
+            securityContext:
+              privileged: true
+            volumeMounts:
+            - mountPath: /home/jenkins
+              name: workspace-volume
+            - mountPath: /kaniko/.docker
+              name: jenkins-docker-cfg
+          volumes:
+          - emptyDir: {}
+            name: workspace-volume
+          - name: jenkins-docker-cfg
+            secret:
+              secretName: jenkins-docker-cfg
+
         agent:
           image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
         stages:
@@ -54,16 +92,16 @@ pipelineConfig:
                   command: /kaniko/warmer
                   args:
                     - --cache-dir=/workspace
-                    - --image=gcr.io/jenkinsxio/builder-base:0.0.83
+                    - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93
 
                 # builders
                 - name: build-and-push-maven-java11
                   command: /kaniko/executor
                   args:
                     - --dockerfile=/workspace/source/builder-maven-java11/Dockerfile
-                    - --destination=gcr.io/jenkinsxio/builder-maven-java11:$(inputs.params.version)
+                    - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-maven-java11:$(inputs.params.version)
                     - --context=/workspace/source
-                    - --cache-repo=gcr.io/jenkinsxio/cache
+                    - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                     - --cache=true
                     - --cache-dir=/workspace
                 # builders
@@ -71,63 +109,63 @@ pipelineConfig:
                   command: /kaniko/executor
                   args:
                     - --dockerfile=/workspace/source/builder-maven-java14/Dockerfile
-                    - --destination=gcr.io/jenkinsxio/builder-maven-java14:$(inputs.params.version)
+                    - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-maven-java14:$(inputs.params.version)
                     - --context=/workspace/source
-                    - --cache-repo=gcr.io/jenkinsxio/cache
+                    - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                     - --cache=true
                     - --cache-dir=/workspace
                 - name: build-and-push-maven-graalvm
                   command: /kaniko/executor
                   args:
                     - --dockerfile=/workspace/source/builder-maven-graalvm/Dockerfile
-                    - --destination=gcr.io/jenkinsxio/builder-maven-graalvm:$(inputs.params.version)
+                    - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-maven-graalvm:$(inputs.params.version)
                     - --context=/workspace/source
-                    - --cache-repo=gcr.io/jenkinsxio/cache
+                    - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                     - --cache=true
                     - --cache-dir=/workspace
                 - name: build-and-push-maven-graalvm-java11
                   command: /kaniko/executor
                   args:
                     - --dockerfile=/workspace/source/builder-maven-graalvm-java11/Dockerfile
-                    - --destination=gcr.io/jenkinsxio/builder-maven-graalvm-java11:$(inputs.params.version)
+                    - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-maven-graalvm-java11:$(inputs.params.version)
                     - --context=/workspace/source
-                    - --cache-repo=gcr.io/jenkinsxio/cache
+                    - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                     - --cache=true
                     - --cache-dir=/workspace
                 - name: build-and-push-maven-nodejs
                   command: /kaniko/executor
                   args:
                     - --dockerfile=/workspace/source/builder-maven-nodejs/Dockerfile
-                    - --destination=gcr.io/jenkinsxio/builder-maven-nodejs:$(inputs.params.version)
+                    - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-maven-nodejs:$(inputs.params.version)
                     - --context=/workspace/source
-                    - --cache-repo=gcr.io/jenkinsxio/cache
+                    - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                     - --cache=true
                     - --cache-dir=/workspace
                 - name: build-and-push-maven
                   command: /kaniko/executor
                   args:
                     - --dockerfile=/workspace/source/builder-maven/Dockerfile
-                    - --destination=gcr.io/jenkinsxio/builder-maven:$(inputs.params.version)
+                    - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-maven:$(inputs.params.version)
                     - --context=/workspace/source
-                    - --cache-repo=gcr.io/jenkinsxio/cache
+                    - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                     - --cache=true
                     - --cache-dir=/workspace
                 - name: build-and-push-python
                   command: /kaniko/executor
                   args:
                     - --dockerfile=/workspace/source/builder-python/Dockerfile
-                    - --destination=gcr.io/jenkinsxio/builder-python:$(inputs.params.version)
+                    - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-python:$(inputs.params.version)
                     - --context=/workspace/source
-                    - --cache-repo=gcr.io/jenkinsxio/cache
+                    - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                     - --cache=true
                     - --cache-dir=/workspace
                 - name: build-and-push-maven-32
                   command: /kaniko/executor
                   args:
                     - --dockerfile=/workspace/source/builder-maven-32/Dockerfile
-                    - --destination=gcr.io/jenkinsxio/builder-maven-32:$(inputs.params.version)
+                    - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-maven-32:$(inputs.params.version)
                     - --context=/workspace/source/builder-maven-32
-                    - --cache-repo=gcr.io/jenkinsxio/cache
+                    - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                     - --cache=true
                     - --cache-dir=/workspace
               - name: batch-2
@@ -141,59 +179,59 @@ pipelineConfig:
                     command: /kaniko/warmer
                     args:
                       - --cache-dir=/workspace
-                      - --image=gcr.io/jenkinsxio/builder-base:0.0.83
+                      - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93
                   - name: build-and-push-go-maven
                     command: /kaniko/executor
                     args:
                       - --dockerfile=/workspace/source/builder-go-maven/Dockerfile
-                      - --destination=gcr.io/jenkinsxio/builder-go-maven:$(inputs.params.version)
+                      - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-go-maven:$(inputs.params.version)
                       - --context=/workspace/source/builder-go-maven
-                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                       - --cache=true
                       - --cache-dir=/workspace
                   - name: build-and-push-go
                     command: /kaniko/executor
                     args:
                       - --dockerfile=/workspace/source/builder-go/Dockerfile
-                      - --destination=gcr.io/jenkinsxio/builder-go:$(inputs.params.version)
+                      - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-go:$(inputs.params.version)
                       - --context=/workspace/source
-                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                       - --cache=true
                       - --cache-dir=/workspace
                   - name: build-and-push-terraform
                     command: /kaniko/executor
                     args:
                       - --dockerfile=/workspace/source/builder-terraform/Dockerfile
-                      - --destination=gcr.io/jenkinsxio/builder-terraform:$(inputs.params.version)
+                      - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-terraform:$(inputs.params.version)
                       - --context=/workspace/source
-                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                       - --cache=true
                       - --cache-dir=/workspace
                   - name: build-and-push-go-nodejs
                     command: /kaniko/executor
                     args:
                       - --dockerfile=/workspace/source/builder-go-nodejs/Dockerfile
-                      - --destination=gcr.io/jenkinsxio/builder-go-nodejs:$(inputs.params.version)
+                      - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-go-nodejs:$(inputs.params.version)
                       - --context=/workspace/source
-                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                       - --cache=true
                       - --cache-dir=/workspace
                   - name: build-and-push-php5x
                     command: /kaniko/executor
                     args:
                       - --dockerfile=/workspace/source/builder-php5x/Dockerfile
-                      - --destination=gcr.io/jenkinsxio/builder-php5x:$(inputs.params.version)
+                      - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-php5x:$(inputs.params.version)
                       - --context=/workspace/source
-                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                       - --cache=true
                       - --cache-dir=/workspace
                   - name: build-and-push-php7x
                     command: /kaniko/executor
                     args:
                       - --dockerfile=/workspace/source/builder-php7x/Dockerfile
-                      - --destination=gcr.io/jenkinsxio/builder-php7x:$(inputs.params.version)
+                      - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-php7x:$(inputs.params.version)
                       - --context=/workspace/source
-                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                       - --cache=true
                       - --cache-dir=/workspace
               - name: batch-3
@@ -207,68 +245,68 @@ pipelineConfig:
                     command: /kaniko/warmer
                     args:
                       - --cache-dir=/workspace
-                      - --image=gcr.io/jenkinsxio/builder-base:0.0.83
+                      - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93
                   - name: build-and-push-gradle
                     command: /kaniko/executor
                     args:
                       - --dockerfile=/workspace/source/builder-gradle/Dockerfile
-                      - --destination=gcr.io/jenkinsxio/builder-gradle:$(inputs.params.version)
+                      - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-gradle:$(inputs.params.version)
                       - --context=/workspace/source
-                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                       - --cache=true
                       - --cache-dir=/workspace
                   - name: build-and-push-gradle4
                     command: /kaniko/executor
                     args:
                       - --dockerfile=/workspace/source/builder-gradle4/Dockerfile
-                      - --destination=gcr.io/jenkinsxio/builder-gradle4:$(inputs.params.version)
+                      - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-gradle4:$(inputs.params.version)
                       - --context=/workspace/source
-                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                       - --cache=true
                       - --cache-dir=/workspace
                   - name: build-and-push-gradle5
                     command: /kaniko/executor
                     args:
                       - --dockerfile=/workspace/source/builder-gradle5/Dockerfile
-                      - --destination=gcr.io/jenkinsxio/builder-gradle5:$(inputs.params.version)
+                      - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-gradle5:$(inputs.params.version)
                       - --context=/workspace/source
-                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                       - --cache=true
                       - --cache-dir=/workspace
                   - name: build-and-push-gradle5-java11
                     command: /kaniko/executor
                     args:
                       - --dockerfile=/workspace/source/builder-gradle5-java11/Dockerfile
-                      - --destination=gcr.io/jenkinsxio/builder-gradle5-java11:$(inputs.params.version)
+                      - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-gradle5-java11:$(inputs.params.version)
                       - --context=/workspace/source
-                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                       - --cache=true
                       - --cache-dir=/workspace
                   - name: build-and-push-nodejs
                     command: /kaniko/executor
                     args:
                       - --dockerfile=/workspace/source/builder-nodejs/Dockerfile
-                      - --destination=gcr.io/jenkinsxio/builder-nodejs:$(inputs.params.version)
+                      - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-nodejs:$(inputs.params.version)
                       - --context=/workspace/source
-                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                       - --cache=true
                       - --cache-dir=/workspace
                   - name: build-and-push-nodejs8x
                     command: /kaniko/executor
                     args:
                       - --dockerfile=/workspace/source/builder-nodejs8x/Dockerfile
-                      - --destination=gcr.io/jenkinsxio/builder-nodejs8x:$(inputs.params.version)
+                      - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-nodejs8x:$(inputs.params.version)
                       - --context=/workspace/source
-                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                       - --cache=true
                       - --cache-dir=/workspace
                   - name: build-and-push-nodejs14x
                     command: /kaniko/executor
                     args:
                       - --dockerfile=/workspace/source/builder-nodejs14x/Dockerfile
-                      - --destination=gcr.io/jenkinsxio/builder-nodejs14x:$(inputs.params.version)
+                      - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-nodejs14x:$(inputs.params.version)
                       - --context=/workspace/source
-                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                       - --cache=true
                       - --cache-dir=/workspace
               - name: batch-4
@@ -282,70 +320,70 @@ pipelineConfig:
                     command: /kaniko/warmer
                     args:
                       - --cache-dir=/workspace
-                      - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.83
-                      - --image=gcr.io/jenkinsxio/builder-base:0.0.83
-                      - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.83
+                      - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-swiftbase:0.0.93
+                      - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93
+                      - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-rubybase:0.0.93
                   - name: build-and-push-jx
                     command: /kaniko/executor
                     args:
                       - --dockerfile=/workspace/source/builder-jx/Dockerfile
-                      - --destination=gcr.io/jenkinsxio/builder-jx:$(inputs.params.version)
+                      - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-jx:$(inputs.params.version)
                       - --context=/workspace/source
-                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                       - --cache=true
                       - --cache-dir=/workspace
                   - name: build-and-push-asciidoctor
                     command: /kaniko/executor
                     args:
                       - --dockerfile=/workspace/source/builder-asciidoctor/Dockerfile
-                      - --destination=gcr.io/jenkinsxio/builder-asciidoctor:$(inputs.params.version)
+                      - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-asciidoctor:$(inputs.params.version)
                       - --context=/workspace/source
-                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                       - --cache=true
                       - --cache-dir=/workspace
                   - name: build-and-push-nodejs10x
                     command: /kaniko/executor
                     args:
                       - --dockerfile=/workspace/source/builder-nodejs10x/Dockerfile
-                      - --destination=gcr.io/jenkinsxio/builder-nodejs10x:$(inputs.params.version)
+                      - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-nodejs10x:$(inputs.params.version)
                       - --context=/workspace/source
-                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                       - --cache=true
                       - --cache-dir=/workspace
                   - name: build-and-push-python2
                     command: /kaniko/executor
                     args:
                       - --dockerfile=/workspace/source/builder-python2/Dockerfile
-                      - --destination=gcr.io/jenkinsxio/builder-python2:$(inputs.params.version)
+                      - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-python2:$(inputs.params.version)
                       - --context=/workspace/source
-                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                       - --cache=true
                       - --cache-dir=/workspace
                   - name: build-and-push-ruby
                     command: /kaniko/executor
                     args:
                       - --dockerfile=/workspace/source/builder-ruby/Dockerfile
-                      - --destination=gcr.io/jenkinsxio/builder-ruby:$(inputs.params.version)
+                      - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-ruby:$(inputs.params.version)
                       - --context=/workspace/source
-                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                       - --cache=true
                       - --cache-dir=/workspace
                   - name: build-and-push-scala
                     command: /kaniko/executor
                     args:
                       - --dockerfile=/workspace/source/builder-scala/Dockerfile
-                      - --destination=gcr.io/jenkinsxio/builder-scala:$(inputs.params.version)
+                      - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-scala:$(inputs.params.version)
                       - --context=/workspace/source
-                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                       - --cache=true
                       - --cache-dir=/workspace
                   - name: build-and-push-swift
                     command: /kaniko/executor
                     args:
                       - --dockerfile=/workspace/source/builder-swift/Dockerfile
-                      - --destination=gcr.io/jenkinsxio/builder-swift:$(inputs.params.version)
+                      - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-swift:$(inputs.params.version)
                       - --context=/workspace/source
-                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                       - --cache=true
                       - --cache-dir=/workspace
               - name: batch-5
@@ -359,68 +397,68 @@ pipelineConfig:
                     command: /kaniko/warmer
                     args:
                       - --cache-dir=/workspace
-                      - --image=gcr.io/jenkinsxio/builder-base:0.0.83
+                      - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93
                   - name: build-and-push-python37
                     command: /kaniko/executor
                     args:
                       - --dockerfile=/workspace/source/builder-python37/Dockerfile
-                      - --destination=gcr.io/jenkinsxio/builder-python37:$(inputs.params.version)
+                      - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-python37:$(inputs.params.version)
                       - --context=/workspace/source
-                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                       - --cache=true
                       - --cache-dir=/workspace
                   - name: build-and-push-nodejs12x
                     command: /kaniko/executor
                     args:
                       - --dockerfile=/workspace/source/builder-nodejs12x/Dockerfile
-                      - --destination=gcr.io/jenkinsxio/builder-nodejs12x:$(inputs.params.version)
+                      - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-nodejs12x:$(inputs.params.version)
                       - --context=/workspace/source
-                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                       - --cache=true
                       - --cache-dir=/workspace
                   - name: build-and-push-newman
                     command: /kaniko/executor
                     args:
                       - --dockerfile=/workspace/source/builder-newman/Dockerfile
-                      - --destination=gcr.io/jenkinsxio/builder-newman:$(inputs.params.version)
+                      - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-newman:$(inputs.params.version)
                       - --context=/workspace/source
-                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                       - --cache=true
                       - --cache-dir=/workspace
                   - name: build-and-push-cf
                     command: /kaniko/executor
                     args:
                       - --dockerfile=/workspace/source/builder-cf/Dockerfile
-                      - --destination=gcr.io/jenkinsxio/builder-cf:$(inputs.params.version)
+                      - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-cf:$(inputs.params.version)
                       - --context=/workspace/source
-                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                       - --cache=true
                       - --cache-dir=/workspace
                   - name: build-and-push-dlang
                     command: /kaniko/executor
                     args:
                       - --dockerfile=/workspace/source/builder-dlang/Dockerfile
-                      - --destination=gcr.io/jenkinsxio/builder-dlang:$(inputs.params.version)
+                      - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-dlang:$(inputs.params.version)
                       - --context=/workspace/source
-                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                       - --cache=true
                       - --cache-dir=/workspace
                   - name: build-and-push-dotnet
                     command: /kaniko/executor
                     args:
                       - --dockerfile=/workspace/source/builder-dotnet/Dockerfile
-                      - --destination=gcr.io/jenkinsxio/builder-dotnet:$(inputs.params.version)
+                      - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-dotnet:$(inputs.params.version)
                       - --context=/workspace/source
-                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                       - --cache=true
                       - --cache-dir=/workspace
                   - name: build-and-push-rust
                     command: /kaniko/executor
                     args:
                       - --dockerfile=/workspace/source/builder-rust/Dockerfile
-                      - --destination=gcr.io/jenkinsxio/builder-rust:$(inputs.params.version)
+                      - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-rust:$(inputs.params.version)
                       - --context=/workspace/source
-                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                       - --cache=true
                       - --cache-dir=/workspace
     release:
@@ -430,15 +468,53 @@ pipelineConfig:
             sh: "jx step next-version --version $(jx step get dependency-version --host=github.com --owner=jenkins-x --repo=jx --dir . | sed 's/.*: \\(.*\\)/\\1/')-${BUILD_NUMBER} --tag"
 
       pipeline:
+        # options:
+        #   containerOptions:
+        #     resources:
+        #       limits:
+        #         memory: 16Gi
+        #         cpu: 3
+        #       requests:
+        #         memory: 12Gi
+        #         cpu: 2
         options:
+          distributeParallelAcrossNodes: true
           containerOptions:
+            env:
+            - name: DOCKER_REGISTRY
+              valueFrom:
+                configMapKeyRef:
+                  key: docker.registry
+                  name: jenkins-x-docker-registry
+            - name: GIT_AUTHOR_EMAIL
+              value: jenkins-x@googlegroups.com
+            - name: GIT_AUTHOR_NAME
+              value: jenkins-x-bot
+            - name: GIT_COMMITTER_EMAIL
+              value: jenkins-x@googlegroups.com
+            - name: GIT_COMMITTER_NAME
+              value: jenkins-x-bot
+            - name: XDG_CONFIG_HOME
+              value: /home/jenkins
+            name: ""
             resources:
-              limits:
-                memory: 16Gi
-                cpu: 3
               requests:
-                memory: 12Gi
-                cpu: 2
+                cpu: 1200m
+                memory: 6Gi
+            securityContext:
+              privileged: true
+            volumeMounts:
+            - mountPath: /home/jenkins
+              name: workspace-volume
+            - mountPath: /kaniko/.docker
+              name: jenkins-docker-cfg
+          volumes:
+          - emptyDir: {}
+            name: workspace-volume
+          - name: jenkins-docker-cfg
+            secret:
+              secretName: jenkins-docker-cfg
+              
         agent:
           image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
         stages:
@@ -475,18 +551,18 @@ pipelineConfig:
               command: /kaniko/warmer
               args:
                 - --cache-dir=/workspace
-                - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.83
-                - --image=gcr.io/jenkinsxio/builder-base:0.0.83
-                - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.83
+                - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-swiftbase:0.0.93
+                - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93
+                - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-rubybase:0.0.93
 
             - name: build-and-push-jx2
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-jx/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-jx:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-jx:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-jx:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-jx:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
 
@@ -499,200 +575,200 @@ pipelineConfig:
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-maven-java11/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-maven-java11:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-maven-java11:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-maven-java11:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-maven-java11:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-maven-java14
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-maven-java14/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-maven-java14:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-maven-java14:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-maven-java14:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-maven-java14:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-maven-graalvm
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-maven-graalvm/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-maven-graalvm:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-maven-graalvm:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-maven-graalvm:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-maven-graalvm:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-maven-graalvm-java11
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-maven-graalvm-java11/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-maven-graalvm-java11:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-maven-graalvm-java11:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-maven-graalvm-java11:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-maven-graalvm-java11:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-maven-nodejs
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-maven-nodejs/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-maven-nodejs:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-maven-nodejs:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-maven-nodejs:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-maven-nodejs:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-cf
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-cf/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-cf:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-cf:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-cf:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-cf:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-go
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-go/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-go:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-go:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-go:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-go:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-go-nodejs
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-go-nodejs/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-go-nodejs:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-go-nodejs:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-go-nodejs:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-go-nodejs:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-python37
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-python37/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-python37:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-python37:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-python37:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-python37:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-go-maven2
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-go-maven/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-go-maven:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-go-maven:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-go-maven:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-go-maven:latest
                 - --context=/workspace/source/builder-go-maven
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-jx3
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-jx/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-jx:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-jx:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-jx:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-jx:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-asciidoctor
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-asciidoctor/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-asciidoctor:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-asciidoctor:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-asciidoctor:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-asciidoctor:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-python
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-python/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-python:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-python:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-python:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-python:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-maven-32
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-maven-32/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-maven-32:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-maven-32:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-maven-32:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-maven-32:latest
                 - --context=/workspace/source/builder-maven-32
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-dlang
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-dlang/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-dlang:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-dlang:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-dlang:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-dlang:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-dotnet
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-dotnet/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-dotnet:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-dotnet:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-dotnet:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-dotnet:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-gradle
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-gradle/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-gradle:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-gradle:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-gradle:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-gradle:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-gradle4
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-gradle4/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-gradle4:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-gradle4:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-gradle4:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-gradle4:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-gradle5
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-gradle5/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-gradle5:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-gradle5:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-gradle5:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-gradle5:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-gradle5-java11
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-gradle5-java11/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-gradle5-java11:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-gradle5-java11:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-gradle5-java11:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-gradle5-java11:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
 #  TODO: Skipping machine learning until we have a more efficient way to build them
@@ -700,170 +776,170 @@ pipelineConfig:
 #              command: /kaniko/executor
 #              args:
 #                - --dockerfile=/workspace/source/builder-machine-learning/Dockerfile
-#                - --destination=gcr.io/jenkinsxio/builder-machine-learning:$(inputs.params.version)
-#                - --destination=gcr.io/jenkinsxio/builder-machine-learning:latest
+#                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-machine-learning:$(inputs.params.version)
+#                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-machine-learning:latest
 #                - --context=/workspace/source
-#                - --cache-repo=gcr.io/jenkinsxio/cache
+#                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
 #                - --cache=true
 #                - --cache-dir=/workspace
 #            - name: build-and-push-machine-learning-gpu
 #              command: /kaniko/executor
 #              args:
 #                - --dockerfile=/workspace/source/builder-machine-learning-gpu/Dockerfile
-#                - --destination=gcr.io/jenkinsxio/builder-machine-learning-gpu:$(inputs.params.version)
-#                - --destination=gcr.io/jenkinsxio/builder-machine-learning-gpu:latest
+#                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-machine-learning-gpu:$(inputs.params.version)
+#                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-machine-learning-gpu:latest
 #                - --context=/workspace/source
-#                - --cache-repo=gcr.io/jenkinsxio/cache
+#                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
 #                - --cache=true
 #                - --cache-dir=/workspace
             - name: build-and-push-maven
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-maven/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-maven:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-maven:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-maven:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-maven:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-newman
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-newman/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-newman:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-newman:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-newman:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-newman:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-nodejs
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-nodejs/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-nodejs:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-nodejs:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-nodejs:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-nodejs:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-nodejs8x
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-nodejs8x/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-nodejs8x:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-nodejs8x:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-nodejs8x:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-nodejs8x:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-nodejs10x
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-nodejs10x/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-nodejs10x:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-nodejs10x:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-nodejs10x:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-nodejs10x:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-nodejs12x
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-nodejs12x/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-nodejs12x:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-nodejs12x:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-nodejs12x:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-nodejs12x:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-nodejs14x
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-nodejs14x/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-nodejs14x:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-nodejs14x:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-nodejs14x:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-nodejs14x:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-php5x
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-php5x/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-php5x:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-php5x:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-php5x:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-php5x:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-php7x
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-php7x/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-php7x:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-php7x:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-php7x:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-php7x:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-python2
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-python2/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-python2:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-python2:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-python2:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-python2:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-ruby
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-ruby/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-ruby:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-ruby:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-ruby:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-ruby:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-rust
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-rust/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-rust:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-rust:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-rust:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-rust:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-scala
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-scala/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-scala:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-scala:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-scala:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-scala:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-swift
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-swift/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-swift:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-swift:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-swift:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-swift:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
             - name: build-and-push-terraform
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-terraform/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-terraform:$(inputs.params.version)
-                - --destination=gcr.io/jenkinsxio/builder-terraform:latest
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-terraform:$(inputs.params.version)
+                - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-terraform:latest
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache-repo=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache
                 - --cache=true
                 - --cache-dir=/workspace
           - name: update-and-release-notes
@@ -883,10 +959,10 @@ pipelineConfig:
             steps:
             # update downstream dependencies
             - name: update-bot
-              image: gcr.io/jenkinsxio/builder-go-maven:$(inputs.params.version)
+              image: 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-go-maven:$(inputs.params.version)
               command: ./update-bot.sh
 
             # Create the release notes
             - name: changelog
-              image: gcr.io/jenkinsxio/builder-go:$(inputs.params.version)
+              image: 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-go:$(inputs.params.version)
               command: ./changelog.sh

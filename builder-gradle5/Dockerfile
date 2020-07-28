@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.83
+FROM 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93
 
 CMD ["gradle"]
 
@@ -45,6 +45,6 @@ RUN set -o errexit -o nounset \
 RUN gradle --version
 
 # jx
-ENV JX_VERSION 2.1.113
-RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
+ENV JX_VERSION 2.1.112
+RUN curl -f -L https://github.com/rajattyagipvr/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
   mv jx /usr/bin/
