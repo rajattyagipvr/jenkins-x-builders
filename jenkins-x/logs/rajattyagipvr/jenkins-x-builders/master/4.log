@@ -1,0 +1,1030 @@
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-2j4n8-4[0m stage [32mbuild-base[0m and container [32mstep-credential-initializer-sph97[0m
+{"level":"warn","ts":1595958194.6070058,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1595958194.608194,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-2j4n8-4[0m stage [32mbuild-base[0m and container [32mstep-working-dir-initializer-6ls8r[0m
+{"level":"warn","ts":1595958196.0208464,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1595958196.030515,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-2j4n8-4[0m stage [32mbuild-base[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-2j4n8-4[0m stage [32mbuild-base[0m and container [32mstep-create-dir-workspace-kg9n4[0m
+{"level":"warn","ts":1595958214.019,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1595958214.02004,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p source\"; output "}
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-2j4n8-4[0m stage [32mbuild-base[0m and container [32mstep-git-source-rajattyagipvr-jenkins-x-builder-2j4n8-2dqn4[0m
+{"level":"warn","ts":1595958214.3790526,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1595958217.275185,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/*************/jenkins-x-builders.git @ v2.1.113-4 in path /workspace/source"}
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-2j4n8-4[0m stage [32mbuild-base[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:9b48af4ae6a2a25e75ed8b39080096c66bf6173e
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-2j4n8-4[0m stage [32mbuild-base[0m and container [32mstep-build-and-push-jx2[0m
+[36mINFO[0m[0000] Downloading base image 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93 
+[36mINFO[0m[0000] Error while retrieving image from cache: getting file info: stat /workspace/sha256:f9fd64ebc1f261b56fbe3f659711e4873080871c52326c68b38f4f0b4a2406d1: no such file or directory 
+[36mINFO[0m[0000] Downloading base image 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93 
+[36mINFO[0m[0000] Checking for cached layer 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:d85862ec5d36c97aa2d6372af217339038bcb819fc88648f548735db7191afda... 
+[36mINFO[0m[0000] No cached layer found for cmd RUN curl -f -L https://github.com/*************/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ 
+[36mINFO[0m[0000] Unpacking rootfs as cmd RUN curl -f -L https://github.com/*************/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ requires it. 
+[36mINFO[0m[0070] Taking snapshot of full filesystem...        
+[36mINFO[0m[0097] ENV JX_VERSION 2.1.112                       
+[36mINFO[0m[0097] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0097] RUN curl -f -L https://github.com/*************/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ 
+[36mINFO[0m[0097] cmd: /bin/sh                                 
+[36mINFO[0m[0097] args: [-c curl -f -L https://github.com/*************/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/] 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   634  100   634    0     0   1459      0 --:--:-- --:--:-- --:--:--  1460
+LICENSE
+README.md
+changelog.md
+**
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0 67.8M    0 16967    0     0  11492      0  1:43:10  0:00:01  1:43:09 16488  3 67.8M    3 2344k    0     0   906k      0  0:01:16  0:00:02  0:01:14 1096k 14 67.8M   14 9823k    0     0  2796k      0  0:00:24  0:00:03  0:00:21 3204k 25 67.8M   25 17.0M    0     0  3938k      0  0:00:17  0:00:04  0:00:13 4378k 37 67.8M   37 25.5M    0     0  4784k      0  0:00:14  0:00:05  0:00:09 5211k 48 67.8M   48 33.0M    0     0  5234k      0  0:00:13  0:00:06  0:00:07 6778k 61 67.8M   61 41.9M    0     0  5729k      0  0:00:12  0:00:07  0:00:05 8266k 73 67.8M   73 49.9M    0     0  6008k      0  0:00:11  0:00:08  0:00:03 8265k 85 67.8M   85 57.7M    0     0  6269k      0  0:00:11  0:00:09  0:00:02 8339k 97 67.8M   97 66.0M    0     0  6461k      0  0:00:10  0:00:10 --:--:-- 8296k100 67.8M  100 67.8M    0     0  6513k      0  0:00:10  0:00:10 --:--:-- 8483k
+[36mINFO[0m[0109] Taking snapshot of full filesystem...        
+[36mINFO[0m[0136] Pushing layer 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:d85862ec5d36c97aa2d6372af217339038bcb819fc88648f548735db7191afda to cache now 
+2020/07/28 17:45:56 pushed blob: sha256:7ea77907e48d4940e365754cef5df2fcf811438762316239a57269f39bfd20da
+2020/07/28 17:46:06 pushed blob: sha256:229ff2cdcde87714859b226f561971a90469238985187040b198e1ead32ebab1
+2020/07/28 17:46:06 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:d85862ec5d36c97aa2d6372af217339038bcb819fc88648f548735db7191afda: digest: sha256:4a85fe4391b408ab12107083269a4a8a7fc9660cf7fb34950f0602899b26ff7e size: 429
+2020/07/28 17:46:07 pushed blob: sha256:9feeee5630e520c445e6d0281567c4f3ec1f4533da5539b385d2b601d09c0b74
+2020/07/28 17:46:11 pushed blob: sha256:524b0c1e57f8ee5fee01a1decba2f301c324a6513ca3551021264e3aa7341ebc
+2020/07/28 17:46:16 pushed blob: sha256:e015cbee56fd4346645a199d23c397de648dc99a0d6dead66693bffe3da6ce43
+2020/07/28 17:46:19 pushed blob: sha256:229ff2cdcde87714859b226f561971a90469238985187040b198e1ead32ebab1
+2020/07/28 17:46:27 pushed blob: sha256:29c0f851a0ba6305aec56b10aa4d1c8c6b11076c85af092356b5b3103b21f75f
+2020/07/28 17:46:31 pushed blob: sha256:a3181543eb196c7ac196ce759b509da6e5ac619fe04cd24813d3c5cb442a0587
+2020/07/28 17:46:32 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-**:2.1.113-4: digest: sha256:c5c5ee04b15b5a4607d90e41d27fb5976eddd6b3e42278979873b44f126c64a0 size: 1093
+2020/07/28 17:46:32 existing blob: sha256:a3181543eb196c7ac196ce759b509da6e5ac619fe04cd24813d3c5cb442a0587
+2020/07/28 17:46:32 existing blob: sha256:e015cbee56fd4346645a199d23c397de648dc99a0d6dead66693bffe3da6ce43
+2020/07/28 17:46:32 existing blob: sha256:29c0f851a0ba6305aec56b10aa4d1c8c6b11076c85af092356b5b3103b21f75f
+2020/07/28 17:46:32 existing blob: sha256:9feeee5630e520c445e6d0281567c4f3ec1f4533da5539b385d2b601d09c0b74
+2020/07/28 17:46:32 existing blob: sha256:229ff2cdcde87714859b226f561971a90469238985187040b198e1ead32ebab1
+2020/07/28 17:46:32 existing blob: sha256:524b0c1e57f8ee5fee01a1decba2f301c324a6513ca3551021264e3aa7341ebc
+2020/07/28 17:46:32 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-**:latest: digest: sha256:c5c5ee04b15b5a4607d90e41d27fb5976eddd6b3e42278979873b44f126c64a0 size: 1093
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-2j4n8-4[0m stage [32mbuild-base[0m and container [32mstep-step3[0m
+updating builder-maven-java11
+/workspace/source/builder-maven-java11 /workspace/source
+FROM 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93
+/workspace/source
+updating builder-maven-nodejs
+/workspace/source/builder-maven-nodejs /workspace/source
+FROM 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93
+/workspace/source
+updating builder-go
+/workspace/source/builder-go /workspace/source
+FROM 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93
+/workspace/source
+updating builder-go-maven
+/workspace/source/builder-go-maven /workspace/source
+FROM 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93
+/workspace/source
+updating builder-terraform
+/workspace/source/builder-terraform /workspace/source
+FROM 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93
+/workspace/source
+updating builder-go-nodejs
+/workspace/source/builder-go-nodejs /workspace/source
+FROM 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93
+/workspace/source
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-2j4n8-4[0m stage [32mbuild-base[0m and container [32mstep-build-and-push-maven-java11[0m
+[36mINFO[0m[0000] Downloading base image 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93 
+[36mINFO[0m[0000] Error while retrieving image from cache: getting file info: stat /workspace/sha256:f9fd64ebc1f261b56fbe3f659711e4873080871c52326c68b38f4f0b4a2406d1: no such file or directory 
+[36mINFO[0m[0000] Downloading base image 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93 
+[36mINFO[0m[0000] Checking for cached layer 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:67bb8711baf7dc4461fc9f53babfe97eae79e1722d5ce1216a384a72649224fb... 
+[36mINFO[0m[0000] No cached layer found for cmd RUN curl -f -L https://repo1.maven.org/maven2/org/apache/maven/apache-maven/$MAVEN_VERSION/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar -C /opt -xzv 
+[36mINFO[0m[0000] Unpacking rootfs as cmd RUN curl -f -L https://repo1.maven.org/maven2/org/apache/maven/apache-maven/$MAVEN_VERSION/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar -C /opt -xzv requires it. 
+[36mINFO[0m[0063] Taking snapshot of full filesystem...        
+[36mINFO[0m[0084] ENV MAVEN_VERSION 3.6.3                      
+[36mINFO[0m[0084] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0084] RUN curl -f -L https://repo1.maven.org/maven2/org/apache/maven/apache-maven/$MAVEN_VERSION/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar -C /opt -xzv 
+[36mINFO[0m[0084] cmd: /bin/sh                                 
+[36mINFO[0m[0084] args: [-c curl -f -L https://repo1.maven.org/maven2/org/apache/maven/apache-maven/$MAVEN_VERSION/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar -C /opt -xzv] 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+apache-maven-3.6.3/README.txt
+apache-maven-3.6.3/LICENSE
+apache-maven-3.6.3/NOTICE
+apache-maven-3.6.3/lib/
+apache-maven-3.6.3/lib/cdi-api.license
+apache-maven-3.6.3/lib/commons-cli.license
+apache-maven-3.6.3/lib/commons-io.license
+apache-maven-3.6.3/lib/commons-lang3.license
+apache-maven-3.6.3/lib/guava.license
+apache-maven-3.6.3/lib/guice.license
+apache-maven-3.6.3/lib/jansi.license
+apache-maven-3.6.3/lib/javax.inject.license
+apache-maven-3.6.3/lib/jcl-over-slf4j.license
+apache-maven-3.6.3/lib/jsoup.license
+apache-maven-3.6.3/lib/jsr250-api.license
+apache-maven-3.6.3/lib/org.eclipse.sisu.inject.license
+apache-maven-3.6.3/lib/org.eclipse.sisu.plexus.license
+apache-maven-3.6.3/lib/plexus-cipher.license
+apache-maven-3.6.3/lib/plexus-component-annotations.license
+apache-maven-3.6.3/lib/plexus-interpolation.license
+apache-maven-3.6.3/lib/plexus-sec-dispatcher.license
+apache-maven-3.6.3/lib/plexus-utils.license
+apache-maven-3.6.3/lib/slf4j-api.license
+apache-maven-3.6.3/boot/
+apache-maven-3.6.3/boot/plexus-classworlds.license
+apache-maven-3.6.3/lib/jansi-native/
+apache-maven-3.6.3/lib/jansi-native/freebsd32/
+apache-maven-3.6.3/lib/jansi-native/freebsd64/
+apache-maven-3.6.3/lib/jansi-native/linux32/
+apache-maven-3.6.3/lib/jansi-native/linux64/
+apache-maven-3.6.3/lib/jansi-native/osx/
+apache-maven-3.6.3/lib/jansi-native/windows32/
+apache-maven-3.6.3/lib/jansi-native/windows64/
+apache-maven-3.6.3/lib/jansi-native/freebsd32/libjansi.so
+apache-maven-3.6.3/lib/jansi-native/freebsd64/libjansi.so
+apache-maven-3.6.3/lib/jansi-native/linux32/libjansi.so
+apache-maven-3.6.3/lib/jansi-native/linux64/libjansi.so
+apache-maven-3.6.3/lib/jansi-native/osx/libjansi.jnilib
+apache-maven-3.6.3/lib/jansi-native/windows32/jansi.dll
+apache-maven-3.6.3/lib/jansi-native/windows64/jansi.dll
+apache-maven-3.6.3/bin/m2.conf
+apache-maven-3.6.3/bin/mvn.cmd
+apache-maven-3.6.3/bin/mvnDebug.cmd
+apache-maven-3.6.3/bin/mvn
+apache-maven-3.6.3/bin/mvnDebug
+apache-maven-3.6.3/bin/mvnyjp
+apache-maven-3.6.3/conf/
+apache-maven-3.6.3/conf/logging/
+apache-maven-3.6.3/conf/logging/simplelogger.properties
+apache-maven-3.6.3/conf/settings.xml
+apache-maven-3.6.3/conf/toolchains.xml
+apache-maven-3.6.3/lib/ext/
+apache-maven-3.6.3/lib/jansi-native/
+apache-maven-3.6.3/lib/ext/README.txt
+apache-maven-3.6.3/lib/jansi-native/README.txt
+apache-maven-3.6.3/boot/plexus-classworlds-2.6.0.jar
+apache-maven-3.6.3/lib/maven-embedder-3.6.3.jar
+apache-maven-3.6.3/lib/maven-settings-3.6.3.jar
+apache-maven-3.6.3/lib/maven-settings-builder-3.6.3.jar
+apache-maven-3.6.3/lib/maven-plugin-api-3.6.3.jar
+apache-maven-3.6.3/lib/maven-model-3.6.3.jar
+apache-maven-3.6.3/lib/maven-model-builder-3.6.3.jar
+apache-maven-3.6.3/lib/maven-builder-support-3.6.3.jar
+apache-maven-3.6.3/lib/maven-resolver-api-1.4.1.jar
+apache-maven-3.6.3/lib/maven-resolver-util-1.4.1.jar
+apache-maven-3.6.3/lib/maven-shared-utils-3.2.1.jar
+apache-maven-3.6.3/lib/commons-io-2.5.jar
+apache-maven-3.6.3/lib/guice-4.2.1-no_aop.jar
+apache-maven-3.6.3/lib/guava-25.1-android.jar
+apache-maven-3.6.3/lib/javax.inject-1.jar
+apache-maven-3.6.3/lib/jsr250-api-1.0.jar
+apache-maven-3.6.3/lib/plexus-utils-3.2.1.jar
+apache-maven-3.6.3/lib/plexus-sec-dispatcher-1.4.jar
+apache-maven-3.6.3/lib/plexus-cipher-1.7.jar
+apache-maven-3.6.3/lib/slf4j-api-1.7.29.jar
+apache-maven-3.6.3/lib/commons-lang3-3.8.1.jar
+apache-maven-3.6.3/lib/maven-core-3.6.3.jar
+apache-maven-3.6.3/lib/maven-repository-metadata-3.6.3.jar
+apache-maven-3.6.3/lib/maven-artifact-3.6.3.jar
+apache-maven-3.6.3/lib/maven-resolver-provider-3.6.3.jar
+apache-maven-3.6.3/lib/maven-resolver-impl-1.4.1.jar
+apache-maven-3.6.3/lib/maven-resolver-spi-1.4.1.jar
+apache-maven-3.6.3/lib/org.eclipse.sisu.inject-0.3.4.jar
+apache-maven-3.6.3/lib/plexus-component-annotations-2.1.0.jar
+apache-maven-3.6.3/lib/maven-compat-3.6.3.jar
+apache-maven-3.6.3/lib/plexus-interpolation-1.25.jar
+apache-maven-3.6.3/lib/wagon-provider-api-3.3.4.jar
+apache-maven-3.6.3/lib/org.eclipse.sisu.plexus-0.3.4.jar
+apache-maven-3.6.3/lib/cdi-api-1.0.jar
+apache-maven-3.6.3/lib/commons-cli-1.4.jar
+apache-maven-3.6.3/lib/wagon-http-3.3.4-shaded.jar
+apache-maven-3.6.3/lib/jsoup-1.12.1.jar
+apache-maven-3.6.3/lib/jcl-over-slf4j-1.7.29.jar
+apache-maven-3.6.3/lib/wagon-file-3.3.4.jar
+apache-maven-3.6.3/lib/maven-resolver-connector-basic-1.4.1.jar
+apache-maven-3.6.3/lib/maven-resolver-transport-wagon-1.4.1.jar
+apache-maven-3.6.3/lib/maven-slf4j-provider-3.6.3.jar
+apache-maven-3.6.3/lib/jansi-1.17.1.jar
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 10 9283k   10  930k    0     0   660k      0  0:00:14  0:00:01  0:00:13  660k 50 9283k   50 4658k    0     0  1933k      0  0:00:04  0:00:02  0:00:02 1933k100 9283k  100 9283k    0     0  2845k      0  0:00:03  0:00:03 --:--:-- 2845k
+[36mINFO[0m[0087] Taking snapshot of full filesystem...        
+[36mINFO[0m[0103] Pushing layer 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:67bb8711baf7dc4461fc9f53babfe97eae79e1722d5ce1216a384a72649224fb to cache now 
+[36mINFO[0m[0103] ENV M2_HOME /opt/apache-maven-$MAVEN_VERSION 
+[36mINFO[0m[0103] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0103] ENV maven.home $M2_HOME                      
+[36mINFO[0m[0103] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0103] ENV M2 $M2_HOME/bin                          
+[36mINFO[0m[0103] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0103] ENV PATH $M2:$PATH                           
+[36mINFO[0m[0103] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0103] RUN curl https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz | tar -xz &&    mv /home/jenkins/jdk-11.0.2 /usr/java &&    rm -rf /home/jenkins/jdk-11.0.2 
+[36mINFO[0m[0103] cmd: /bin/sh                                 
+[36mINFO[0m[0103] args: [-c curl https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz | tar -xz &&    mv /home/jenkins/jdk-11.0.2 /usr/java &&    rm -rf /home/jenkins/jdk-11.0.2] 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     02020/07/28 17:48:17 pushed blob: sha256:78ad6e388568e2b8d90fe5a15d417395ac9f48285c52d45da1b6d98cd351f089
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     02020/07/28 17:48:18 pushed blob: sha256:58364f96187585f8b78b1799eac8fe23252cfa8c36bfd0507bb6296deee18a3c
+2020/07/28 17:48:18 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:67bb8711baf7dc4461fc9f53babfe97eae79e1722d5ce1216a384a72649224fb: digest: sha256:c02a37d7851ed0e401d6f8b3c1d8ce6f981df72a64a541d8f05403ae40aa955a size: 429
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  1  178M    1 2064k    0     0   638k      0  0:04:46  0:00:03  0:04:43  638k  2  178M    2 4112k    0     0   968k      0  0:03:09  0:00:04  0:03:05  968k  3  178M    3 6144k    0     0  1165k      0  0:02:37  0:00:05  0:02:32 1165k  4  178M    4 8192k    0     0  1287k      0  0:02:22  0:00:06  0:02:16 1399k  5  178M    5 10.0M    0     0  1380k      0  0:02:12  0:00:07  0:02:05 1776k  5  178M    5 10.0M    0     0  1366k      0  0:02:13  0:00:07  0:02:06 1919k  7  178M    7 14.0M    0     0  1521k      0  0:02:00  0:00:09  0:01:51 1975k  7  178M    7 14.0M    0     0  1512k      0  0:02:01  0:00:09  0:01:52 1946k 10  178M   10 18.0M    0     0  1671k      0  0:01:49  0:00:11  0:01:38 2195k 11  178M   11 20.0M    0     0  1717k      0  0:01:46  0:00:11  0:01:35 2272k 12  178M   12 22.0M    0     0  1751k      0  0:01:44  0:00:12  0:01:32 2286k 13  178M   13 24.0M    0     0  1768k      0  0:01:43  0:00:13  0:01:30 2287k 15  178M   15 28.0M    0     0  1924k      0  0:01:35  0:00:14  0:01:21 2646k 16  178M   16 30.0M    0     0  1932k      0  0:01:34  0:00:15  0:01:19 2523k 17  178M   17 32.0M    0     0  1947k      0  0:01:34  0:00:16  0:01:18 2505k 19  178M   19 34.0M    0     0  1954k      0  0:01:33  0:00:17  0:01:16 2482k 20  178M   20 36.0M    0     0  1969k      0  0:01:32  0:00:18  0:01:14 2547k 21  178M   21 38.0M    0     0  1984k      0  0:01:32  0:00:19  0:01:13 2172k 22  178M   22 40.0M    0     0  1986k      0  0:01:32  0:00:20  0:01:12 2167k 23  178M   23 42.0M    0     0  1999k      0  0:01:31  0:00:21  0:01:10 2185k 24  178M   24 44.0M    0     0  2001k      0  0:01:31  0:00:22  0:01:09 2181k 26  178M   26 47.2M    0     0  2065k      0  0:01:28  0:00:23  0:01:05 2450k 27  178M   27 50.0M    0     0  2029k      0  0:01:30  0:00:25  0:01:05 2188k 29  178M   29 52.0M    0     0  2030k      0  0:01:30  0:00:26  0:01:04 2193k 30  178M   30 54.0M    0     0  2036k      0  0:01:29  0:00:27  0:01:02 2180k 31  178M   31 56.0M    0     0  2037k      0  0:01:29  0:00:28  0:01:01 2179k 32  178M   32 58.0M    0     0  2043k      0  0:01:29  0:00:29  0:01:00 1952k 33  178M   33 60.0M    0     0  2043k      0  0:01:29  0:00:30  0:00:59 2116k 34  178M   34 62.0M    0     0  2081k      0  0:01:27  0:00:30  0:00:57 2398k 35  178M   35 64.0M    0     0  2080k      0  0:01:28  0:00:31  0:00:57 2356k 36  178M   36 66.0M    0     0  2077k      0  0:01:28  0:00:32  0:00:56 2340k 39  178M   39 70.0M    0     0  2104k      0  0:01:26  0:00:34  0:00:52 2458k 40  178M   40 72.0M    0     0  2106k      0  0:01:26  0:00:35  0:00:51 2489k 41  178M   41 74.0M    0     0  2132k      0  0:01:25  0:00:35  0:00:50 2435k 42  178M   42 76.0M    0     0  2136k      0  0:01:25  0:00:36  0:00:49 2488k 43  178M   43 78.0M    0     0  2133k      0  0:01:25  0:00:37  0:00:48 2497k 45  178M   45 81.2M    0     0  2163k      0  0:01:24  0:00:38  0:00:46 2622k 46  178M   46 83.4M    0     0  2167k      0  0:01:24  0:00:39  0:00:45 2647k 48  178M   48 86.0M    0     0  2156k      0  0:01:24  0:00:40  0:00:44 2318k 49  178M   49 88.0M    0     0  2153k      0  0:01:25  0:00:41  0:00:44 2270k 50  178M   50 90.0M    0     0  2150k      0  0:01:25  0:00:42  0:00:43 2273k 51  178M   51 92.0M    0     0  2146k      0  0:01:25  0:00:43  0:00:42 2026k 52  178M   52 94.0M    0     0  2144k      0  0:01:25  0:00:44  0:00:41 1978k 53  178M   53 96.0M    0     0  2146k      0  0:01:25  0:00:45  0:00:40 2068k 54  178M   54 98.0M    0     0  2149k      0  0:01:25  0:00:46  0:00:39 2113k 57  178M   57  102M    0     0  2173k      0  0:01:24  0:00:48  0:00:36 2365k 58  178M   58  104M    0     0  2174k      0  0:01:24  0:00:48  0:00:36 2413k 59  178M   59  106M    0     0  2171k      0  0:01:24  0:00:49  0:00:35 2409k 60  178M   60  108M    0     0  2169k      0  0:01:24  0:00:50  0:00:34 2364k 61  178M   61  110M    0     0  2170k      0  0:01:24  0:00:51  0:00:33 2356k 62  178M   62  112M    0     0  2170k      0  0:01:24  0:00:52  0
+:00:32 2139k 64  178M   64  116M    0     0  2185k      0  0:01:23  0:00:54  0:00:29 2281k 65  178M   65  117M    0     0  2214k      0  0:01:22  0:00:54  0:00:28 2697k 67  178M   67  120M    0     0  2197k      0  0:01:23  0:00:55  0:00:28 2491k 68  178M   68  122M    0     0  2195k      0  0:01:23  0:00:56  0:00:27 2461k 69  178M   69  124M    0     0  2195k      0  0:01:23  0:00:57  0:00:26 2449k 70  178M   70  126M    0     0  2192k      0  0:01:23  0:00:58  0:00:25 2285k 71  178M   71  128M    0     0  2193k      0  0:01:23  0:00:59  0:00:24 1983k 72  178M   72  130M    0     0  2189k      0  0:01:23  0:01:00  0:00:23 2102k 73  178M   73  132M    0     0  2191k      0  0:01:23  0:01:01  0:00:22 2136k 74  178M   74  134M    0     0  2189k      0  0:01:23  0:01:02  0:00:21 2121k 77  178M   77  138M    0     0  2200k      0  0:01:23  0:01:04  0:00:19 2289k 78  178M   78  140M    0     0  2201k      0  0:01:23  0:01:05  0:00:18 2289k 79  178M   79  142M    0     0  2218k      0  0:01:22  0:01:05  0:00:17 2581k 81  178M   81  146M    0     0  2227k      0  0:01:22  0:01:07  0:00:15 2636k 82  178M   82  148M    0     0  2224k      0  0:01:22  0:01:08  0:00:14 2626k 83  178M   83  150M    0     0  2239k      0  0:01:21  0:01:08  0:00:13 2809k 85  178M   85  152M    0     0  2240k      0  0:01:21  0:01:09  0:00:12 2810k 87  178M   87  156M    0     0  2252k      0  0:01:21  0:01:10  0:00:11 2668k 88  178M   88  158M    0     0  2252k      0  0:01:21  0:01:11  0:00:10 2621k 89  178M   89  160M    0     0  2253k      0  0:01:21  0:01:12  0:00:09 2682k 90  178M   90  162M    0     0  2253k      0  0:01:21  0:01:13  0:00:08 2436k 92  178M   92  166M    0     0  2275k      0  0:01:20  0:01:14  0:00:06 2744k 93  178M   93  168M    0     0  2272k      0  0:01:20  0:01:15  0:00:05 2569k 95  178M   95  170M    0     0  2269k      0  0:01:20  0:01:16  0:00:04 2511k 96  178M   96  172M    0     0  2266k      0  0:01:20  0:01:17  0:00:03 2454k 97  178M   97  174M    0     0  2263k      0  0:01:20  0:01:18  0:00:02 2411k 98  178M   98  176M    0     0  2260k      0  0:01:21  0:01:19  0:00:02 2040k 99  178M   99  178M    0     0  2258k      0  0:01:21  0:01:20  0:00:01 2039k100  178M  100  178M    0     0  2267k      0  0:01:20  0:01:20 --:--:-- 2233k
+[36mINFO[0m[0185] Taking snapshot of full filesystem...        
+[36mINFO[0m[0214] RUN ln -s /usr/java/bin/java /usr/bin/java   
+[36mINFO[0m[0214] cmd: /bin/sh                                 
+[36mINFO[0m[0214] args: [-c ln -s /usr/java/bin/java /usr/bin/java] 
+[36mINFO[0m[0214] Taking snapshot of full filesystem...        
+[36mINFO[0m[0214] Pushing layer 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:8a187412a2b49790b731de75532ce43fe34ab3b1d9350229dfa9ecdfd2f3ded9 to cache now 
+2020/07/28 17:50:08 pushed blob: sha256:fae6c31168d747889cc3eb27b7cd6debf7a8f878ab3874bcce25159b6bc794b4
+2020/07/28 17:50:23 pushed blob: sha256:b4ea18a322dee3618f3f55cf5e9bec44e36d7f278594bfdc1014b15a8a2753fe
+2020/07/28 17:50:23 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:8a187412a2b49790b731de75532ce43fe34ab3b1d9350229dfa9ecdfd2f3ded9: digest: sha256:a533291dc4d866e4b94264f14c8fcd4dd455847eda94d96c81ec0fd1f46b7ac8 size: 430
+[36mINFO[0m[0233] RUN ln -s /usr/java/bin/javac /usr/bin/javac 
+[36mINFO[0m[0233] cmd: /bin/sh                                 
+[36mINFO[0m[0233] args: [-c ln -s /usr/java/bin/javac /usr/bin/javac] 
+[36mINFO[0m[0233] Pushing layer 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:7c08431a12e561e4490ee52cbe73ba29ee12a42d674efcc257558e5566bdb44d to cache now 
+[36mINFO[0m[0233] Taking snapshot of full filesystem...        
+2020/07/28 17:50:27 pushed blob: sha256:5db3637a6827e9d592d6f8fa2289165a17f7f863dbcafb2ad8e85e399379e1bd
+2020/07/28 17:50:27 pushed blob: sha256:82db0bbb9d5a2c428722b9ce341649ff2b9d9c61e6c99304b93cb6bc3300f9ea
+2020/07/28 17:50:27 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:7c08431a12e561e4490ee52cbe73ba29ee12a42d674efcc257558e5566bdb44d: digest: sha256:6ee3af4a0f48a5d7124237349646edf5372ac6ddda257e7c13ddabb4443cc949 size: 424
+[36mINFO[0m[0249] RUN ln -s /usr/java/bin/javadoc /usr/bin/javadoc 
+[36mINFO[0m[0249] cmd: /bin/sh                                 
+[36mINFO[0m[0249] args: [-c ln -s /usr/java/bin/javadoc /usr/bin/javadoc] 
+[36mINFO[0m[0249] Pushing layer 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:faa6ee020d1850bc695926bc5a165da1416058122647e6330763aee581bf8acb to cache now 
+[36mINFO[0m[0249] Taking snapshot of full filesystem...        
+2020/07/28 17:50:43 pushed blob: sha256:6a1a9b6836913f843e4c73a37e6c3f29311cf2ed92480ffaedbc684004e12a1b
+2020/07/28 17:50:43 pushed blob: sha256:6966b954cfe9d383cfe30e9eea025099260cd893f85dc1bedbe28490ff396338
+2020/07/28 17:50:43 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:faa6ee020d1850bc695926bc5a165da1416058122647e6330763aee581bf8acb: digest: sha256:50e380debd1644c7a3b5270cfe8aaf873d9e4c73a31fe503b77d4499ee4712a4 size: 424
+[36mINFO[0m[0266] Pushing layer 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:d6d0af0f66dae45514dafc8dfd6aae46dc81a4b4b84ba90b18655c2515337044 to cache now 
+[36mINFO[0m[0266] ENV JAVA_HOME /usr/java                      
+[36mINFO[0m[0266] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0266] ENV UPDATEBOT_VERSION 1.1.41                 
+[36mINFO[0m[0266] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0266] RUN curl -f  -o ./updatebot -L https://repo1.maven.org/maven2/io/jenkins/updatebot/updatebot/${UPDATEBOT_VERSION}/updatebot-${UPDATEBOT_VERSION}.jar &&   chmod +x updatebot &&   cp updatebot /usr/bin/ &&   rm -rf updatebot 
+[36mINFO[0m[0266] cmd: /bin/sh                                 
+[36mINFO[0m[0266] args: [-c curl -f  -o ./updatebot -L https://repo1.maven.org/maven2/io/jenkins/updatebot/updatebot/${UPDATEBOT_VERSION}/updatebot-${UPDATEBOT_VERSION}.jar &&   chmod +x updatebot &&   cp updatebot /usr/bin/ &&   rm -rf updatebot] 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     02020/07/28 17:50:59 pushed blob: sha256:844d4f9ab83047b08e2fe23eda89331c6c0feb1bf55223e807724d52ae0eca41
+2020/07/28 17:51:00 pushed blob: sha256:4d1a6acea4b1aa2950987726d06d12494e7248b2424920cbe88ccd2293b047d7
+2020/07/28 17:51:00 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:d6d0af0f66dae45514dafc8dfd6aae46dc81a4b4b84ba90b18655c2515337044: digest: sha256:d87254fcb23429f8dd598c54a2ea014eb8a44a01fa80546bd71499e1cf66ef03 size: 424
+  0 5019k    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  8 5019k    8  427k    0     0   258k      0  0:00:19  0:00:01  0:00:18  258k100 5019k  100 5019k    0     0  2339k      0  0:00:02  0:00:02 --:--:-- 2341k
+[36mINFO[0m[0268] Taking snapshot of full filesystem...        
+[36mINFO[0m[0284] Pushing layer 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:efb8f79072d67573d761d78ae73270b2bec0b89a39646c9287a70b9c453ba9cd to cache now 
+[36mINFO[0m[0284] ENV JX_VERSION 2.1.112                       
+[36mINFO[0m[0284] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0284] RUN curl -f -L https://github.com/*************/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ 
+[36mINFO[0m[0284] cmd: /bin/sh                                 
+[36mINFO[0m[0284] args: [-c curl -f -L https://github.com/*************/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/] 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     02020/07/28 17:51:18 pushed blob: sha256:80ff1f58d714e29d1604009a7e647207c289f259d05d52a3454e245144ad0daa
+100   634  100   634    0     0   1429      0 --:--:-- --:--:-- --:--:--  1431
+2020/07/28 17:51:19 pushed blob: sha256:a1c74000e3c667936efc8258c7dee95d2bfebca11d7f64fa7af0c080745da60c
+2020/07/28 17:51:19 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:efb8f79072d67573d761d78ae73270b2bec0b89a39646c9287a70b9c453ba9cd: digest: sha256:54ec9956655e657d6ee55df41129df1c5bee1dd448903868fce5ca803797d9ee size: 428
+LICENSE
+README.md
+changelog.md
+**
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0 67.8M    0  220k    0     0   110k      0  0:10:29  0:00:01  0:10:28  223k  7 67.8M    7 5063k    0     0  1727k      0  0:00:40  0:00:02  0:00:38 2639k 19 67.8M   19 13.3M    0     0  3486k      0  0:00:19  0:00:03  0:00:16 4696k 30 67.8M   30 20.9M    0     0  4345k      0  0:00:15  0:00:04  0:00:11 5466k 42 67.8M   42 29.1M    0     0  5012k      0  0:00:13  0:00:05  0:00:08 6040k 55 67.8M   55 37.4M    0     0  5506k      0  0:00:12  0:00:06  0:00:06 7678k 67 67.8M   67 45.6M    0     0  5855k      0  0:00:11  0:00:07  0:00:04 8251k 77 67.8M   77 52.4M    0     0  5978k      0  0:00:11  0:00:08  0:00:03 7917k 90 67.8M   90 61.0M    0     0  6245k      0  0:00:11  0:00:10  0:00:01 8097k100 67.8M  100 67.8M    0     0  6382k      0  0:00:10  0:00:10 --:--:-- 8039k
+[36mINFO[0m[0299] Taking snapshot of full filesystem...        
+[36mINFO[0m[0322] Pushing layer 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:273ef2d7b27276ef1878bc430b6e9db49e91b496c9769462c197b510c72806f3 to cache now 
+[36mINFO[0m[0323] CMD ["mvn","-version"]                       
+[36mINFO[0m[0323] No files changed in this command, skipping snapshotting. 
+2020/07/28 17:51:56 pushed blob: sha256:51d315b86451c13edf0b92548113e916126ecd19d304bc1f001a342919436c04
+2020/07/28 17:52:05 pushed blob: sha256:2ea1a8d967bc28c597b4bf85f4a526fe7628582e5a13924578b39ee083cd8341
+2020/07/28 17:52:05 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:273ef2d7b27276ef1878bc430b6e9db49e91b496c9769462c197b510c72806f3: digest: sha256:3ebde850797deea8c8cd389170c7bdd07850d714c55c1cae9a368fa86ea1defc size: 429
+2020/07/28 17:52:06 pushed blob: sha256:5db3637a6827e9d592d6f8fa2289165a17f7f863dbcafb2ad8e85e399379e1bd
+2020/07/28 17:52:06 pushed blob: sha256:5cbc0e3e733fed797b794af3806fc361afd2071ee4102519a4289b17c2a09f8a
+2020/07/28 17:52:06 pushed blob: sha256:4d1a6acea4b1aa2950987726d06d12494e7248b2424920cbe88ccd2293b047d7
+2020/07/28 17:52:06 pushed blob: sha256:6a1a9b6836913f843e4c73a37e6c3f29311cf2ed92480ffaedbc684004e12a1b
+2020/07/28 17:52:06 pushed blob: sha256:a1c74000e3c667936efc8258c7dee95d2bfebca11d7f64fa7af0c080745da60c
+2020/07/28 17:52:07 pushed blob: sha256:58364f96187585f8b78b1799eac8fe23252cfa8c36bfd0507bb6296deee18a3c
+2020/07/28 17:52:11 pushed blob: sha256:524b0c1e57f8ee5fee01a1decba2f301c324a6513ca3551021264e3aa7341ebc
+2020/07/28 17:52:16 pushed blob: sha256:e015cbee56fd4346645a199d23c397de648dc99a0d6dead66693bffe3da6ce43
+2020/07/28 17:52:20 pushed blob: sha256:2ea1a8d967bc28c597b4bf85f4a526fe7628582e5a13924578b39ee083cd8341
+2020/07/28 17:52:23 pushed blob: sha256:b4ea18a322dee3618f3f55cf5e9bec44e36d7f278594bfdc1014b15a8a2753fe
+2020/07/28 17:52:27 pushed blob: sha256:29c0f851a0ba6305aec56b10aa4d1c8c6b11076c85af092356b5b3103b21f75f
+2020/07/28 17:52:31 pushed blob: sha256:a3181543eb196c7ac196ce759b509da6e5ac619fe04cd24813d3c5cb442a0587
+2020/07/28 17:52:31 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-maven-java11:2.1.113-4: digest: sha256:52c2c85d4c69ae334b7e4ae7f5e792c1868d257a765044787f1448a69bb1430a size: 2068
+2020/07/28 17:52:31 existing blob: sha256:58364f96187585f8b78b1799eac8fe23252cfa8c36bfd0507bb6296deee18a3c
+2020/07/28 17:52:31 existing blob: sha256:29c0f851a0ba6305aec56b10aa4d1c8c6b11076c85af092356b5b3103b21f75f
+2020/07/28 17:52:31 existing blob: sha256:524b0c1e57f8ee5fee01a1decba2f301c324a6513ca3551021264e3aa7341ebc
+2020/07/28 17:52:31 existing blob: sha256:6a1a9b6836913f843e4c73a37e6c3f29311cf2ed92480ffaedbc684004e12a1b
+2020/07/28 17:52:31 existing blob: sha256:b4ea18a322dee3618f3f55cf5e9bec44e36d7f278594bfdc1014b15a8a2753fe
+2020/07/28 17:52:31 existing blob: sha256:a3181543eb196c7ac196ce759b509da6e5ac619fe04cd24813d3c5cb442a0587
+2020/07/28 17:52:31 existing blob: sha256:4d1a6acea4b1aa2950987726d06d12494e7248b2424920cbe88ccd2293b047d7
+2020/07/28 17:52:31 existing blob: sha256:5db3637a6827e9d592d6f8fa2289165a17f7f863dbcafb2ad8e85e399379e1bd
+2020/07/28 17:52:31 existing blob: sha256:5cbc0e3e733fed797b794af3806fc361afd2071ee4102519a4289b17c2a09f8a
+2020/07/28 17:52:31 existing blob: sha256:2ea1a8d967bc28c597b4bf85f4a526fe7628582e5a13924578b39ee083cd8341
+2020/07/28 17:52:31 existing blob: sha256:a1c74000e3c667936efc8258c7dee95d2bfebca11d7f64fa7af0c080745da60c
+2020/07/28 17:52:31 existing blob: sha256:e015cbee56fd4346645a199d23c397de648dc99a0d6dead66693bffe3da6ce43
+2020/07/28 17:52:31 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-maven-java11:latest: digest: sha256:52c2c85d4c69ae334b7e4ae7f5e792c1868d257a765044787f1448a69bb1430a size: 2068
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-2j4n8-4[0m stage [32mbuild-base[0m and container [32mstep-build-and-push-maven-java14[0m
+[36mINFO[0m[0000] Downloading base image 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93 
+[36mINFO[0m[0000] Error while retrieving image from cache: getting file info: stat /workspace/sha256:f9fd64ebc1f261b56fbe3f659711e4873080871c52326c68b38f4f0b4a2406d1: no such file or directory 
+[36mINFO[0m[0000] Downloading base image 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93 
+[36mINFO[0m[0000] Checking for cached layer 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:acefcca3e7f234e9a0dc44631bc3e2c1236e721dc8e287a82df3cae9ee36d108... 
+[36mINFO[0m[0000] No cached layer found for cmd RUN curl -O https://download.java.net/java/GA/jdk14.0.1/664493ef4a6946b186ff29eb326336a2/7/GPL/openjdk-14.0.1_linux-x64_bin.tar.gz 
+[36mINFO[0m[0000] Unpacking rootfs as cmd RUN curl -O https://download.java.net/java/GA/jdk14.0.1/664493ef4a6946b186ff29eb326336a2/7/GPL/openjdk-14.0.1_linux-x64_bin.tar.gz requires it. 
+[36mINFO[0m[0063] Taking snapshot of full filesystem...        
+[36mINFO[0m[0085] RUN curl -O https://download.java.net/java/GA/jdk14.0.1/664493ef4a6946b186ff29eb326336a2/7/GPL/openjdk-14.0.1_linux-x64_bin.tar.gz 
+[36mINFO[0m[0085] cmd: /bin/sh                                 
+[36mINFO[0m[0085] args: [-c curl -O https://download.java.net/java/GA/jdk14.0.1/664493ef4a6946b186ff29eb326336a2/7/GPL/openjdk-14.0.1_linux-x64_bin.tar.gz] 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  1  189M    1 2048k    0     0   516k      0  0:06:15  0:00:03  0:06:12  516k  2  189M    2 4096k    0     0   815k      0  0:03:57  0:00:05  0:03:52  815k  3  189M    3 6144k    0     0  1034k      0  0:03:07  0:00:05  0:03:02 1074k  4  189M    4 8192k    0     0  1177k      0  0:02:44  0:00:06  0:02:38 1431k  5  189M    5 10.0M    0     0  1289k      0  0:02:30  0:00:07  0:02:23 1794k  6  189M    6 12.0M    0     0  1371k      0  0:02:21  0:00:08  0:02:13 2050k  7  189M    7 14.0M    0     0  1434k      0  0:02:15  0:00:09  0:02:06 2060k  8  189M    8 16.0M    0     0  1502k      0  0:02:09  0:00:10  0:01:59 2061k  9  189M    9 18.0M    0     0  1626k      0  0:01:59  0:00:11  0:01:48 2341k 11  189M   11 22.0M    0     0  1763k      0  0:01:49  0:00:12  0:01:37 2545k 12  189M   12 24.0M    0     0  1844k      0  0:01:45  0:00:13  0:01:32 2817k 13  189M   13 26.0M    0     0  1859k      0  0:01:44  0:00:14  0:01:30 2838k 15  189M   15 29.3M    0     0  1972k      0  0:01:38  0:00:15  0:01:23 3160k 15  189M   15 30.0M    0     0  1893k      0  0:01:42  0:00:16  0:01:26 2510k 17  189M   17 34.0M    0     0  1930k      0  0:01:40  0:00:18  0:01:22 2333k 19  189M   19 36.0M    0     0  1935k      0  0:01:40  0:00:19  0:01:21 2145k 20  189M   20 38.0M    0     0  1951k      0  0:01:39  0:00:19  0:01:20 2186k 21  189M   21 40.0M    0     0  1964k      0  0:01:38  0:00:20  0:01:18 1944k 22  189M   22 42.0M    0     0  1967k      0  0:01:38  0:00:21  0:01:17 2182k 23  189M   23 44.0M    0     0  1980k      0  0:01:37  0:00:22  0:01:15 2173k 24  189M   24 46.0M    0     0  1992k      0  0:01:37  0:00:23  0:01:14 2230k 26  189M   26 50.0M    0     0  2034k      0  0:01:35  0:00:25  0:01:10 2349k 27  189M   27 52.0M    0     0  2072k      0  0:01:33  0:00:25  0:01:08 2534k 28  189M   28 54.0M    0     0  2079k      0  0:01:33  0:00:26  0:01:07 2593k 29  189M   29 56.0M    0     0  2076k      0  0:01:33  0:00:27  0:01:06 2526k 30  189M   30 58.0M    0     0  2074k      0  0:01:33  0:00:28  0:01:05 2460k 31  189M   31 60.0M    0     0  2072k      0  0:01:33  0:00:29  0:01:04 2284k 32  189M   32 62.0M    0     0  2071k      0  0:01:33  0:00:30  0:01:03 2063k 34  189M   34 66.0M    0     0  2104k      0  0:01:32  0:00:32  0:01:00 2226k 35  189M   35 68.0M    0     0  2106k      0  0:01:32  0:00:33  0:00:59 2257k 36  189M   36 70.0M    0     0  2109k      0  0:01:31  0:00:33  0:00:58 2300k 38  189M   38 72.0M    0     0  2107k      0  0:01:32  0:00:34  0:00:58 2303k 39  189M   39 74.0M    0     0  2105k      0  0:01:32  0:00:35  0:00:57 2303k 40  189M   40 76.0M    0     0  2103k      0  0:01:32  0:00:37  0:00:55 2094k 41  189M   41 78.0M    0     0  2127k      0  0:01:31  0:00:37  0:00:54 2285k 43  189M   43 82.0M    0     0  2154k      0  0:01:30  0:00:38  0:00:52 2461k 44  189M   44 84.0M    0     0  2151k      0  0:01:30  0:00:39  0:00:51 2462k 45  189M   45 86.0M    0     0  2179k      0  0:01:29  0:00:40  0:00:49 2781k 46  189M   46 88.0M    0     0  2180k      0  0:01:28  0:00:41  0:00:47 2839k 47  189M   47 90.0M    0     0  2182k      0  0:01:28  0:00:42  0:00:46 2615k 49  189M   49 94.0M    0     0  2186k      0  0:01:28  0:00:44  0:00:44 2428k 50  189M   50 96.0M    0     0  2186k      0  0:01:28  0:00:44  0:00:44 2464k 51  189M   51 98.0M    0     0  2211k      0  0:01:27  0:00:45  0:00:42 2469k 53  189M   53  102M    0     0  2233k      0  0:01:26  0:00:46  0:00:40 2639k 54  189M   54  104M    0     0  2232k      0  0:01:26  0:00:47  0:00:39 2625k 57  189M   57  108M    0     0  2254k      0  0:01:26  0:00:49  0:00:37 2849k 58  189M   58  110M    0     0  2251k      0  0:01:26  0:00:50  0:00:36 2830k 59  189M   59  112M    0     0  2252k      0  0:01:26  0:00:50  0
+:00:36 2593k 60  189M   60  114M    0     0  2253k      0  0:01:26  0:00:51  0:00:35 2437k 61  189M   61  116M    0     0  2253k      0  0:01:26  0:00:52  0:00:34 2451k 62  189M   62  118M    0     0  2254k      0  0:01:26  0:00:53  0:00:33 2253k 64  189M   64  122M    0     0  2275k      0  0:01:25  0:00:54  0:00:31 2512k 65  189M   65  124M    0     0  2274k      0  0:01:25  0:00:55  0:00:30 2502k 66  189M   66  126M    0     0  2271k      0  0:01:25  0:00:56  0:00:29 2455k 67  189M   67  128M    0     0  2269k      0  0:01:25  0:00:57  0:00:28 2440k 68  189M   68  130M    0     0  2270k      0  0:01:25  0:00:58  0:00:27 2443k 69  189M   69  132M    0     0  2270k      0  0:01:25  0:00:59  0:00:26 2214k 70  189M   70  134M    0     0  2270k      0  0:01:25  0:01:00  0:00:25 2221k 71  189M   71  136M    0     0  2267k      0  0:01:25  0:01:01  0:00:24 2218k 72  189M   72  138M    0     0  2263k      0  0:01:25  0:01:02  0:00:23 2179k 73  189M   73  140M    0     0  2262k      0  0:01:25  0:01:03  0:00:22 2162k 74  189M   74  142M    0     0  2258k      0  0:01:25  0:01:04  0:00:21 2111k 76  189M   76  144M    0     0  2258k      0  0:01:25  0:01:05  0:00:20 2103k 78  189M   78  148M    0     0  2273k      0  0:01:25  0:01:06  0:00:19 2353k 79  189M   79  150M    0     0  2274k      0  0:01:25  0:01:07  0:00:18 2409k 80  189M   80  152M    0     0  2274k      0  0:01:25  0:01:08  0:00:17 2420k 81  189M   81  154M    0     0  2270k      0  0:01:25  0:01:09  0:00:16 2420k 82  189M   82  156M    0     0  2269k      0  0:01:25  0:01:10  0:00:15 2420k 83  189M   83  158M    0     0  2266k      0  0:01:25  0:01:11  0:00:14 2160k 84  189M   84  160M    0     0  2265k      0  0:01:25  0:01:12  0:00:13 2141k 86  189M   86  164M    0     0  2279k      0  0:01:25  0:01:13  0:00:12 2349k 87  189M   87  166M    0     0  2279k      0  0:01:25  0:01:14  0:00:11 2399k 88  189M   88  168M    0     0  2278k      0  0:01:25  0:01:15  0:00:10 2400k 89  189M   89  170M    0     0  2278k      0  0:01:25  0:01:16  0:00:09 2446k 90  189M   90  172M    0     0  2277k      0  0:01:25  0:01:17  0:00:08 2457k 91  189M   91  174M    0     0  2276k      0  0:01:25  0:01:18  0:00:07 2235k 93  189M   93  178M    0     0  2287k      0  0:01:24  0:01:19  0:00:05 2404k 95  189M   95  180M    0     0  2283k      0  0:01:24  0:01:20  0:00:04 2356k 97  189M   97  184M    0     0  2296k      0  0:01:24  0:01:22  0:00:02 2542k 98  189M   98  186M    0     0  2292k      0  0:01:24  0:01:23  0:00:01 2497k 99  189M   99  188M    0     0  2289k      0  0:01:24  0:01:24 --:--:-- 2459k100  189M  100  189M    0     0  2306k      0  0:01:24  0:01:24 --:--:-- 2665k
+[36mINFO[0m[0169] Taking snapshot of full filesystem...        
+[36mINFO[0m[0184] No files were changed, appending empty layer to config. No layer added to image. 
+[36mINFO[0m[0184] RUN   tar xvf openjdk-14.0.1_linux-x64_bin.tar.gz 
+[36mINFO[0m[0184] cmd: /bin/sh                                 
+[36mINFO[0m[0184] args: [-c tar xvf openjdk-14.0.1_linux-x64_bin.tar.gz] 
+[36mINFO[0m[0184] Pushing layer 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:acefcca3e7f234e9a0dc44631bc3e2c1236e721dc8e287a82df3cae9ee36d108 to cache now 
+jdk-14.0.1/bin/jaotc
+jdk-14.0.1/bin/jar
+jdk-14.0.1/bin/jarsigner
+jdk-14.0.1/bin/java
+jdk-14.0.1/bin/javac
+jdk-14.0.1/bin/javadoc
+jdk-14.0.1/bin/javap
+jdk-14.0.1/bin/jcmd
+jdk-14.0.1/bin/jconsole
+jdk-14.0.1/bin/jdb
+jdk-14.0.1/bin/jdeprscan
+jdk-14.0.1/bin/jdeps
+jdk-14.0.1/bin/jfr
+jdk-14.0.1/bin/jhsdb
+jdk-14.0.1/bin/jimage
+jdk-14.0.1/bin/jinfo
+jdk-14.0.1/bin/jjs
+jdk-14.0.1/bin/jlink
+jdk-14.0.1/bin/jmap
+jdk-14.0.1/bin/jmod
+jdk-14.0.1/bin/jpackage
+jdk-14.0.1/bin/jps
+jdk-14.0.1/bin/jrunscript
+jdk-14.0.1/bin/jshell
+jdk-14.0.1/bin/jstack
+jdk-14.0.1/bin/jstat
+jdk-14.0.1/bin/jstatd
+jdk-14.0.1/bin/keytool
+jdk-14.0.1/bin/rmic
+jdk-14.0.1/bin/rmid
+jdk-14.0.1/bin/rmiregistry
+jdk-14.0.1/bin/serialver
+jdk-14.0.1/conf/logging.properties
+jdk-14.0.1/conf/management/jmxremote.access
+jdk-14.0.1/conf/management/jmxremote.password.template
+jdk-14.0.1/conf/management/management.properties
+jdk-14.0.1/conf/net.properties
+jdk-14.0.1/conf/sdp/sdp.conf.template
+jdk-14.0.1/conf/security/java.policy
+jdk-14.0.1/conf/security/java.security
+jdk-14.0.1/conf/security/policy/README.txt
+jdk-14.0.1/conf/security/policy/limited/default_US_export.policy
+jdk-14.0.1/conf/security/policy/limited/default_local.policy
+jdk-14.0.1/conf/security/policy/limited/exempt_local.policy
+jdk-14.0.1/conf/security/policy/unlimited/default_US_export.policy
+jdk-14.0.1/conf/security/policy/unlimited/default_local.policy
+jdk-14.0.1/conf/sound.properties
+jdk-14.0.1/include/classfile_constants.h
+jdk-14.0.1/include/jawt.h
+jdk-14.0.1/include/jdwpTransport.h
+jdk-14.0.1/include/jni.h
+jdk-14.0.1/include/jvmti.h
+jdk-14.0.1/include/jvmticmlr.h
+jdk-14.0.1/include/linux/jawt_md.h
+jdk-14.0.1/include/linux/jni_md.h
+jdk-14.0.1/jmods/java.base.jmod
+jdk-14.0.1/jmods/java.compiler.jmod
+jdk-14.0.1/jmods/java.datatransfer.jmod
+jdk-14.0.1/jmods/java.desktop.jmod
+jdk-14.0.1/jmods/java.instrument.jmod
+jdk-14.0.1/jmods/java.logging.jmod
+jdk-14.0.1/jmods/java.management.jmod
+jdk-14.0.1/jmods/java.management.rmi.jmod
+jdk-14.0.1/jmods/java.naming.jmod
+jdk-14.0.1/jmods/java.net.http.jmod
+jdk-14.0.1/jmods/java.prefs.jmod
+jdk-14.0.1/jmods/java.rmi.jmod
+jdk-14.0.1/jmods/java.scripting.jmod
+jdk-14.0.1/jmods/java.se.jmod
+jdk-14.0.1/jmods/java.security.jgss.jmod
+jdk-14.0.1/jmods/java.security.sasl.jmod
+jdk-14.0.1/jmods/java.smartcardio.jmod
+jdk-14.0.1/jmods/java.sql.jmod
+jdk-14.0.1/jmods/java.sql.rowset.jmod
+jdk-14.0.1/jmods/java.transaction.xa.jmod
+jdk-14.0.1/jmods/java.xml.crypto.jmod
+jdk-14.0.1/jmods/java.xml.jmod
+2020/07/28 17:55:36 pushed blob: sha256:8046252a212a6eab6140a4c147de5895f15031449426add13f0a1030b1e3c0e2
+2020/07/28 17:55:36 pushed blob: sha256:89732bc7504122601f40269fc9ddfb70982e633ea9caf641ae45736f2846b004
+jdk-14.0.1/jmods/jdk.accessibility.jmod
+jdk-14.0.1/jmods/jdk.aot.jmod
+jdk-14.0.1/jmods/jdk.attach.jmod
+jdk-14.0.1/jmods/jdk.charsets.jmod
+jdk-14.0.1/jmods/jdk.compiler.jmod
+jdk-14.0.1/jmods/jdk.crypto.cryptoki.jmod
+jdk-14.0.1/jmods/jdk.crypto.ec.jmod
+jdk-14.0.1/jmods/jdk.dynalink.jmod
+jdk-14.0.1/jmods/jdk.editpad.jmod
+jdk-14.0.1/jmods/jdk.hotspot.agent.jmod
+2020/07/28 17:55:37 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:acefcca3e7f234e9a0dc44631bc3e2c1236e721dc8e287a82df3cae9ee36d108: digest: sha256:1a1a9450f4d0ad1b6e931e6963e8c5980fb9550e4dbe6887777667fa67196a55 size: 423
+jdk-14.0.1/jmods/jdk.httpserver.jmod
+jdk-14.0.1/jmods/jdk.incubator.foreign.jmod
+jdk-14.0.1/jmods/jdk.incubator.jpackage.jmod
+jdk-14.0.1/jmods/jdk.internal.ed.jmod
+jdk-14.0.1/jmods/jdk.internal.jvmstat.jmod
+jdk-14.0.1/jmods/jdk.internal.le.jmod
+jdk-14.0.1/jmods/jdk.internal.opt.jmod
+jdk-14.0.1/jmods/jdk.internal.vm.ci.jmod
+jdk-14.0.1/jmods/jdk.internal.vm.compiler.jmod
+jdk-14.0.1/jmods/jdk.internal.vm.compiler.management.jmod
+jdk-14.0.1/jmods/jdk.jartool.jmod
+jdk-14.0.1/jmods/jdk.javadoc.jmod
+jdk-14.0.1/jmods/jdk.jcmd.jmod
+jdk-14.0.1/jmods/jdk.jconsole.jmod
+jdk-14.0.1/jmods/jdk.jdeps.jmod
+jdk-14.0.1/jmods/jdk.jdi.jmod
+jdk-14.0.1/jmods/jdk.jdwp.agent.jmod
+jdk-14.0.1/jmods/jdk.jfr.jmod
+jdk-14.0.1/jmods/jdk.jlink.jmod
+jdk-14.0.1/jmods/jdk.jshell.jmod
+jdk-14.0.1/jmods/jdk.jsobject.jmod
+jdk-14.0.1/jmods/jdk.jstatd.jmod
+jdk-14.0.1/jmods/jdk.localedata.jmod
+jdk-14.0.1/jmods/jdk.management.agent.jmod
+jdk-14.0.1/jmods/jdk.management.jfr.jmod
+jdk-14.0.1/jmods/jdk.management.jmod
+jdk-14.0.1/jmods/jdk.naming.dns.jmod
+jdk-14.0.1/jmods/jdk.naming.rmi.jmod
+jdk-14.0.1/jmods/jdk.net.jmod
+jdk-14.0.1/jmods/jdk.nio.mapmode.jmod
+jdk-14.0.1/jmods/jdk.rmic.jmod
+jdk-14.0.1/jmods/jdk.scripting.nashorn.jmod
+jdk-14.0.1/jmods/jdk.scripting.nashorn.shell.jmod
+jdk-14.0.1/jmods/jdk.sctp.jmod
+jdk-14.0.1/jmods/jdk.security.auth.jmod
+jdk-14.0.1/jmods/jdk.security.jgss.jmod
+jdk-14.0.1/jmods/jdk.unsupported.desktop.jmod
+jdk-14.0.1/jmods/jdk.unsupported.jmod
+jdk-14.0.1/jmods/jdk.xml.dom.jmod
+jdk-14.0.1/jmods/jdk.zipfs.jmod
+jdk-14.0.1/legal/java.base/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/java.base/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/java.base/LICENSE
+jdk-14.0.1/legal/java.base/aes.md
+jdk-14.0.1/legal/java.base/asm.md
+jdk-14.0.1/legal/java.base/c-libutl.md
+jdk-14.0.1/legal/java.base/cldr.md
+jdk-14.0.1/legal/java.base/icu.md
+jdk-14.0.1/legal/java.base/public_suffix.md
+jdk-14.0.1/legal/java.base/unicode.md
+jdk-14.0.1/legal/java.compiler/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/java.compiler/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/java.compiler/LICENSE
+jdk-14.0.1/legal/java.datatransfer/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/java.datatransfer/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/java.datatransfer/LICENSE
+jdk-14.0.1/legal/java.desktop/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/java.desktop/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/java.desktop/LICENSE
+jdk-14.0.1/legal/java.desktop/colorimaging.md
+jdk-14.0.1/legal/java.desktop/giflib.md
+jdk-14.0.1/legal/java.desktop/harfbuzz.md
+jdk-14.0.1/legal/java.desktop/jpeg.md
+jdk-14.0.1/legal/java.desktop/lcms.md
+jdk-14.0.1/legal/java.desktop/libpng.md
+jdk-14.0.1/legal/java.desktop/mesa3d.md
+jdk-14.0.1/legal/java.desktop/xwd.md
+jdk-14.0.1/legal/java.instrument/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/java.instrument/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/java.instrument/LICENSE
+jdk-14.0.1/legal/java.logging/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/java.logging/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/java.logging/LICENSE
+jdk-14.0.1/legal/java.management.rmi/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/java.management.rmi/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/java.management.rmi/LICENSE
+jdk-14.0.1/legal/java.management/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/java.management/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/java.management/LICENSE
+jdk-14.0.1/legal/java.naming/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/java.naming/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/java.naming/LICENSE
+jdk-14.0.1/legal/java.net.http/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/java.net.http/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/java.net.http/LICENSE
+jdk-14.0.1/legal/java.prefs/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/java.prefs/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/java.prefs/LICENSE
+jdk-14.0.1/legal/java.rmi/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/java.rmi/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/java.rmi/LICENSE
+jdk-14.0.1/legal/java.scripting/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/java.scripting/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/java.scripting/LICENSE
+jdk-14.0.1/legal/java.se/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/java.se/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/java.se/LICENSE
+jdk-14.0.1/legal/java.security.jgss/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/java.security.jgss/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/java.security.jgss/LICENSE
+jdk-14.0.1/legal/java.security.sasl/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/java.security.sasl/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/java.security.sasl/LICENSE
+jdk-14.0.1/legal/java.smartcardio/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/java.smartcardio/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/java.smartcardio/LICENSE
+jdk-14.0.1/legal/java.smartcardio/pcsclite.md
+jdk-14.0.1/legal/java.sql.rowset/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/java.sql.rowset/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/java.sql.rowset/LICENSE
+jdk-14.0.1/legal/java.sql/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/java.sql/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/java.sql/LICENSE
+jdk-14.0.1/legal/java.transaction.xa/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/java.transaction.xa/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/java.transaction.xa/LICENSE
+jdk-14.0.1/legal/java.xml.crypto/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/java.xml.crypto/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/java.xml.crypto/LICENSE
+jdk-14.0.1/legal/java.xml.crypto/santuario.md
+jdk-14.0.1/legal/java.xml/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/java.xml/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/java.xml/LICENSE
+jdk-14.0.1/legal/java.xml/bcel.md
+jdk-14.0.1/legal/java.xml/dom.md
+jdk-14.0.1/legal/java.xml/jcup.md
+jdk-14.0.1/legal/java.xml/xalan.md
+jdk-14.0.1/legal/java.xml/xerces.md
+jdk-14.0.1/legal/jdk.accessibility/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.accessibility/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.accessibility/LICENSE
+jdk-14.0.1/legal/jdk.aot/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.aot/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.aot/LICENSE
+jdk-14.0.1/legal/jdk.attach/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.attach/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.attach/LICENSE
+jdk-14.0.1/legal/jdk.charsets/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.charsets/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.charsets/LICENSE
+jdk-14.0.1/legal/jdk.compiler/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.compiler/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.compiler/LICENSE
+jdk-14.0.1/legal/jdk.crypto.cryptoki/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.crypto.cryptoki/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.crypto.cryptoki/LICENSE
+jdk-14.0.1/legal/jdk.crypto.cryptoki/pkcs11cryptotoken.md
+jdk-14.0.1/legal/jdk.crypto.cryptoki/pkcs11wrapper.md
+jdk-14.0.1/legal/jdk.crypto.ec/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.crypto.ec/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.crypto.ec/LICENSE
+jdk-14.0.1/legal/jdk.crypto.ec/ecc.md
+jdk-14.0.1/legal/jdk.dynalink/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.dynalink/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.dynalink/LICENSE
+jdk-14.0.1/legal/jdk.dynalink/dynalink.md
+jdk-14.0.1/legal/jdk.editpad/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.editpad/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.editpad/LICENSE
+jdk-14.0.1/legal/jdk.hotspot.agent/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.hotspot.agent/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.hotspot.agent/LICENSE
+jdk-14.0.1/legal/jdk.httpserver/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.httpserver/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.httpserver/LICENSE
+jdk-14.0.1/legal/jdk.incubator.foreign/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.incubator.foreign/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.incubator.foreign/LICENSE
+jdk-14.0.1/legal/jdk.incubator.jpackage/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.incubator.jpackage/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.incubator.jpackage/LICENSE
+jdk-14.0.1/legal/jdk.internal.ed/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.internal.ed/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.internal.ed/LICENSE
+jdk-14.0.1/legal/jdk.internal.jvmstat/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.internal.jvmstat/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.internal.jvmstat/LICENSE
+jdk-14.0.1/legal/jdk.internal.le/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.internal.le/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.internal.le/LICENSE
+jdk-14.0.1/legal/jdk.internal.le/jline.md
+jdk-14.0.1/legal/jdk.internal.opt/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.internal.opt/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.internal.opt/LICENSE
+jdk-14.0.1/legal/jdk.internal.opt/jopt-simple.md
+jdk-14.0.1/legal/jdk.internal.vm.ci/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.internal.vm.ci/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.internal.vm.ci/LICENSE
+jdk-14.0.1/legal/jdk.internal.vm.compiler.management/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.internal.vm.compiler.management/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.internal.vm.compiler.management/LICENSE
+jdk-14.0.1/legal/jdk.internal.vm.compiler/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.internal.vm.compiler/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.internal.vm.compiler/LICENSE
+jdk-14.0.1/legal/jdk.jartool/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.jartool/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.jartool/LICENSE
+jdk-14.0.1/legal/jdk.javadoc/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.javadoc/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.javadoc/LICENSE
+jdk-14.0.1/legal/jdk.javadoc/jquery.md
+jdk-14.0.1/legal/jdk.javadoc/jqueryUI.md
+jdk-14.0.1/legal/jdk.javadoc/jszip.md
+jdk-14.0.1/legal/jdk.jcmd/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.jcmd/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.jcmd/LICENSE
+jdk-14.0.1/legal/jdk.jconsole/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.jconsole/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.jconsole/LICENSE
+jdk-14.0.1/legal/jdk.jdeps/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.jdeps/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.jdeps/LICENSE
+jdk-14.0.1/legal/jdk.jdi/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.jdi/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.jdi/LICENSE
+jdk-14.0.1/legal/jdk.jdwp.agent/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.jdwp.agent/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.jdwp.agent/LICENSE
+jdk-14.0.1/legal/jdk.jfr/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.jfr/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.jfr/LICENSE
+jdk-14.0.1/legal/jdk.jlink/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.jlink/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.jlink/LICENSE
+jdk-14.0.1/legal/jdk.jshell/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.jshell/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.jshell/LICENSE
+jdk-14.0.1/legal/jdk.jsobject/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.jsobject/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.jsobject/LICENSE
+jdk-14.0.1/legal/jdk.jstatd/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.jstatd/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.jstatd/LICENSE
+jdk-14.0.1/legal/jdk.localedata/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.localedata/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.localedata/LICENSE
+jdk-14.0.1/legal/jdk.localedata/cldr.md
+jdk-14.0.1/legal/jdk.localedata/thaidict.md
+jdk-14.0.1/legal/jdk.management.agent/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.management.agent/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.management.agent/LICENSE
+jdk-14.0.1/legal/jdk.management.jfr/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.management.jfr/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.management.jfr/LICENSE
+jdk-14.0.1/legal/jdk.management/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.management/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.management/LICENSE
+jdk-14.0.1/legal/jdk.naming.dns/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.naming.dns/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.naming.dns/LICENSE
+jdk-14.0.1/legal/jdk.naming.rmi/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.naming.rmi/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.naming.rmi/LICENSE
+jdk-14.0.1/legal/jdk.net/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.net/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.net/LICENSE
+jdk-14.0.1/legal/jdk.nio.mapmode/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.nio.mapmode/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.nio.mapmode/LICENSE
+jdk-14.0.1/legal/jdk.rmic/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.rmic/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.rmic/LICENSE
+jdk-14.0.1/legal/jdk.scripting.nashorn.shell/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.scripting.nashorn.shell/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.scripting.nashorn.shell/LICENSE
+jdk-14.0.1/legal/jdk.scripting.nashorn/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.scripting.nashorn/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.scripting.nashorn/LICENSE
+jdk-14.0.1/legal/jdk.scripting.nashorn/double-conversion.md
+jdk-14.0.1/legal/jdk.scripting.nashorn/joni.md
+jdk-14.0.1/legal/jdk.sctp/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.sctp/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.sctp/LICENSE
+jdk-14.0.1/legal/jdk.security.auth/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.security.auth/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.security.auth/LICENSE
+jdk-14.0.1/legal/jdk.security.jgss/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.security.jgss/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.security.jgss/LICENSE
+jdk-14.0.1/legal/jdk.unsupported.desktop/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.unsupported.desktop/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.unsupported.desktop/LICENSE
+jdk-14.0.1/legal/jdk.unsupported/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.unsupported/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.unsupported/LICENSE
+jdk-14.0.1/legal/jdk.xml.dom/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.xml.dom/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.xml.dom/LICENSE
+jdk-14.0.1/legal/jdk.zipfs/ADDITIONAL_LICENSE_INFO
+jdk-14.0.1/legal/jdk.zipfs/ASSEMBLY_EXCEPTION
+jdk-14.0.1/legal/jdk.zipfs/LICENSE
+jdk-14.0.1/lib/classlist
+jdk-14.0.1/lib/ct.sym
+jdk-14.0.1/lib/jexec
+jdk-14.0.1/lib/jfr/default.jfc
+jdk-14.0.1/lib/jfr/profile.jfc
+jdk-14.0.1/lib/jrt-fs.jar
+jdk-14.0.1/lib/jspawnhelper
+jdk-14.0.1/lib/jvm.cfg
+jdk-14.0.1/lib/libattach.so
+jdk-14.0.1/lib/libawt.so
+jdk-14.0.1/lib/libawt_headless.so
+jdk-14.0.1/lib/libawt_xawt.so
+jdk-14.0.1/lib/libdt_socket.so
+jdk-14.0.1/lib/libextnet.so
+jdk-14.0.1/lib/libfontmanager.so
+jdk-14.0.1/lib/libinstrument.so
+jdk-14.0.1/lib/libj2gss.so
+jdk-14.0.1/lib/libj2pcsc.so
+jdk-14.0.1/lib/libj2pkcs11.so
+jdk-14.0.1/lib/libjaas.so
+jdk-14.0.1/lib/libjava.so
+jdk-14.0.1/lib/libjavajpeg.so
+jdk-14.0.1/lib/libjawt.so
+jdk-14.0.1/lib/libjdwp.so
+jdk-14.0.1/lib/libjimage.so
+jdk-14.0.1/lib/libjli.so
+jdk-14.0.1/lib/libjsig.so
+jdk-14.0.1/lib/libjsound.so
+jdk-14.0.1/lib/liblcms.so
+jdk-14.0.1/lib/libmanagement.so
+jdk-14.0.1/lib/libmanagement_agent.so
+jdk-14.0.1/lib/libmanagement_ext.so
+jdk-14.0.1/lib/libmlib_image.so
+jdk-14.0.1/lib/libnet.so
+jdk-14.0.1/lib/libnio.so
+jdk-14.0.1/lib/libprefs.so
+jdk-14.0.1/lib/librmi.so
+jdk-14.0.1/lib/libsaproc.so
+jdk-14.0.1/lib/libsctp.so
+jdk-14.0.1/lib/libsplashscreen.so
+jdk-14.0.1/lib/libsunec.so
+jdk-14.0.1/lib/libverify.so
+jdk-14.0.1/lib/libzip.so
+jdk-14.0.1/lib/modules
+jdk-14.0.1/lib/psfont.properties.ja
+jdk-14.0.1/lib/psfontj2d.properties
+jdk-14.0.1/lib/security/blacklisted.certs
+jdk-14.0.1/lib/security/cacerts
+jdk-14.0.1/lib/security/default.policy
+jdk-14.0.1/lib/security/public_suffix_list.dat
+jdk-14.0.1/lib/server/classes.jsa
+jdk-14.0.1/lib/server/libjsig.so
+jdk-14.0.1/lib/server/libjvm.so
+jdk-14.0.1/lib/src.zip
+jdk-14.0.1/lib/tzdb.dat
+jdk-14.0.1/release
+[36mINFO[0m[0188] Taking snapshot of full filesystem...        
+[36mINFO[0m[0204] No files were changed, appending empty layer to config. No layer added to image. 
+[36mINFO[0m[0204] RUN mv jdk-14.0.1 /opt/                      
+[36mINFO[0m[0204] cmd: /bin/sh                                 
+[36mINFO[0m[0204] args: [-c mv jdk-14.0.1 /opt/]               
+[36mINFO[0m[0204] Pushing layer 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:4deefee76730fb6b6baa838b898e6c514c4266142611a3c3a835d3c660751b47 to cache now 
+2020/07/28 17:55:56 existing blob: sha256:89732bc7504122601f40269fc9ddfb70982e633ea9caf641ae45736f2846b004
+[36mINFO[0m[0205] Taking snapshot of full filesystem...        
+2020/07/28 17:55:57 pushed blob: sha256:a30f8b68d408b89dbb9267c2357f1bf26543b9dbdd2afbe8ed827c3a8c0558a0
+2020/07/28 17:55:57 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:4deefee76730fb6b6baa838b898e6c514c4266142611a3c3a835d3c660751b47: digest: sha256:3269d8f4eac51718f636b3416fbbbec74fe83acc1a7e7e695190731f08262bc3 size: 423
+[36mINFO[0m[0231] Pushing layer 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:3074c859122727ed2b480b697dd05e9d21cc8cc2dae71055234b4bb8766128ad to cache now 
+2020/07/28 17:56:23 pushed blob: sha256:d7efe7ba112dcdbfa3d5f8304fc2951416f6f22b212164394e95a55b8fed95df
+[36mINFO[0m[0232] RUN  yum clean all                           
+[36mINFO[0m[0232] cmd: /bin/sh                                 
+[36mINFO[0m[0232] args: [-c yum clean all]                     
+Loaded plugins: fastestmirror, ovl
+Cleaning repos: base epel extras google-chrome updates
+[36mINFO[0m[0232] Taking snapshot of full filesystem...        
+2020/07/28 17:56:39 pushed blob: sha256:1c476ee97ddde65272159e992cc83977ddd59a597643b15a2092636d63939d2d
+2020/07/28 17:56:39 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:3074c859122727ed2b480b697dd05e9d21cc8cc2dae71055234b4bb8766128ad: digest: sha256:ee699d4859516a8a8d1168f3beff6dde7e05532da68512165a94126e5b3a37ba size: 430
+[36mINFO[0m[0252] ENV UPDATEBOT_VERSION 1.1.41                 
+[36mINFO[0m[0252] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0252] RUN curl -f  -o ./updatebot -L https://repo1.maven.org/maven2/io/jenkins/updatebot/updatebot/${UPDATEBOT_VERSION}/updatebot-${UPDATEBOT_VERSION}.jar &&   chmod +x updatebot &&   cp updatebot /usr/bin/ &&   rm -rf updatebot 
+[36mINFO[0m[0252] cmd: /bin/sh                                 
+[36mINFO[0m[0252] args: [-c curl -f  -o ./updatebot -L https://repo1.maven.org/maven2/io/jenkins/updatebot/updatebot/${UPDATEBOT_VERSION}/updatebot-${UPDATEBOT_VERSION}.jar &&   chmod +x updatebot &&   cp updatebot /usr/bin/ &&   rm -rf updatebot] 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0[36mINFO[0m[0252] Pushing layer 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:5dc47a06790c8559c868113f25a3eb120deb20c7b9fed17889d8ae97fe26ddd1 to cache now 
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     02020/07/28 17:56:44 pushed blob: sha256:0f940421c002ef445ab9387bd9172dcb536873611b11d269d7850c129242713c
+2020/07/28 17:56:44 pushed blob: sha256:91ea00aae9fee626637140bbc090b746a9fe5b304bd50669f266228da7ec131a
+2020/07/28 17:56:44 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:5dc47a06790c8559c868113f25a3eb120deb20c7b9fed17889d8ae97fe26ddd1: digest: sha256:fa13ff7500e475e7e84e74bcffc2253f38fd0fdfe234f48e003983b4958876fa size: 427
+  8 5019k    8  427k    0     0   345k      0  0:00:14  0:00:01  0:00:13  345k100 5019k  100 5019k    0     0  2903k      0  0:00:01  0:00:01 --:--:-- 2902k
+[36mINFO[0m[0253] Taking snapshot of full filesystem...        
+[36mINFO[0m[0270] ENV MAVEN_VERSION 3.6.3                      
+[36mINFO[0m[0270] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0270] RUN curl -f -L https://repo1.maven.org/maven2/org/apache/maven/apache-maven/$MAVEN_VERSION/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar -C /opt -xzv 
+[36mINFO[0m[0270] cmd: /bin/sh                                 
+[36mINFO[0m[0270] args: [-c curl -f -L https://repo1.maven.org/maven2/org/apache/maven/apache-maven/$MAVEN_VERSION/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar -C /opt -xzv] 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0[36mINFO[0m[0270] Pushing layer 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:bfa37ca7614ca8328d9c685e6eb95dc5c805af5edcd0f494f754dfae3e7b76aa to cache now 
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     02020/07/28 17:57:02 pushed blob: sha256:2c1677976e3c58468e6278e4b818e7020bdb3d7e19efb53c5be7bc8cdce1b6f7
+2020/07/28 17:57:02 pushed blob: sha256:d35c4554b0d14430d78d9ecc4026f16b96227bd3012b069fdae441bd7addc97c
+2020/07/28 17:57:02 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:bfa37ca7614ca8328d9c685e6eb95dc5c805af5edcd0f494f754dfae3e7b76aa: digest: sha256:14c8f2c12f1b7e8e1beeea11868cdc8669ee66f55582175f076000edbf72f3f4 size: 428
+apache-maven-3.6.3/README.txt
+apache-maven-3.6.3/LICENSE
+apache-maven-3.6.3/NOTICE
+apache-maven-3.6.3/lib/
+apache-maven-3.6.3/lib/cdi-api.license
+apache-maven-3.6.3/lib/commons-cli.license
+apache-maven-3.6.3/lib/commons-io.license
+apache-maven-3.6.3/lib/commons-lang3.license
+apache-maven-3.6.3/lib/guava.license
+apache-maven-3.6.3/lib/guice.license
+apache-maven-3.6.3/lib/jansi.license
+apache-maven-3.6.3/lib/javax.inject.license
+apache-maven-3.6.3/lib/jcl-over-slf4j.license
+apache-maven-3.6.3/lib/jsoup.license
+apache-maven-3.6.3/lib/jsr250-api.license
+apache-maven-3.6.3/lib/org.eclipse.sisu.inject.license
+apache-maven-3.6.3/lib/org.eclipse.sisu.plexus.license
+apache-maven-3.6.3/lib/plexus-cipher.license
+apache-maven-3.6.3/lib/plexus-component-annotations.license
+apache-maven-3.6.3/lib/plexus-interpolation.license
+apache-maven-3.6.3/lib/plexus-sec-dispatcher.license
+apache-maven-3.6.3/lib/plexus-utils.license
+apache-maven-3.6.3/lib/slf4j-api.license
+apache-maven-3.6.3/boot/
+apache-maven-3.6.3/boot/plexus-classworlds.license
+apache-maven-3.6.3/lib/jansi-native/
+apache-maven-3.6.3/lib/jansi-native/freebsd32/
+apache-maven-3.6.3/lib/jansi-native/freebsd64/
+apache-maven-3.6.3/lib/jansi-native/linux32/
+apache-maven-3.6.3/lib/jansi-native/linux64/
+apache-maven-3.6.3/lib/jansi-native/osx/
+apache-maven-3.6.3/lib/jansi-native/windows32/
+apache-maven-3.6.3/lib/jansi-native/windows64/
+apache-maven-3.6.3/lib/jansi-native/freebsd32/libjansi.so
+apache-maven-3.6.3/lib/jansi-native/freebsd64/libjansi.so
+apache-maven-3.6.3/lib/jansi-native/linux32/libjansi.so
+apache-maven-3.6.3/lib/jansi-native/linux64/libjansi.so
+apache-maven-3.6.3/lib/jansi-native/osx/libjansi.jnilib
+apache-maven-3.6.3/lib/jansi-native/windows32/jansi.dll
+apache-maven-3.6.3/lib/jansi-native/windows64/jansi.dll
+apache-maven-3.6.3/bin/m2.conf
+apache-maven-3.6.3/bin/mvn.cmd
+apache-maven-3.6.3/bin/mvnDebug.cmd
+apache-maven-3.6.3/bin/mvn
+apache-maven-3.6.3/bin/mvnDebug
+apache-maven-3.6.3/bin/mvnyjp
+apache-maven-3.6.3/conf/
+apache-maven-3.6.3/conf/logging/
+apache-maven-3.6.3/conf/logging/simplelogger.properties
+apache-maven-3.6.3/conf/settings.xml
+apache-maven-3.6.3/conf/toolchains.xml
+apache-maven-3.6.3/lib/ext/
+apache-maven-3.6.3/lib/jansi-native/
+apache-maven-3.6.3/lib/ext/README.txt
+apache-maven-3.6.3/lib/jansi-native/README.txt
+apache-maven-3.6.3/boot/plexus-classworlds-2.6.0.jar
+apache-maven-3.6.3/lib/maven-embedder-3.6.3.jar
+apache-maven-3.6.3/lib/maven-settings-3.6.3.jar
+apache-maven-3.6.3/lib/maven-settings-builder-3.6.3.jar
+apache-maven-3.6.3/lib/maven-plugin-api-3.6.3.jar
+apache-maven-3.6.3/lib/maven-model-3.6.3.jar
+apache-maven-3.6.3/lib/maven-model-builder-3.6.3.jar
+apache-maven-3.6.3/lib/maven-builder-support-3.6.3.jar
+apache-maven-3.6.3/lib/maven-resolver-api-1.4.1.jar
+apache-maven-3.6.3/lib/maven-resolver-util-1.4.1.jar
+apache-maven-3.6.3/lib/maven-shared-utils-3.2.1.jar
+apache-maven-3.6.3/lib/commons-io-2.5.jar
+apache-maven-3.6.3/lib/guice-4.2.1-no_aop.jar
+apache-maven-3.6.3/lib/guava-25.1-android.jar
+apache-maven-3.6.3/lib/javax.inject-1.jar
+apache-maven-3.6.3/lib/jsr250-api-1.0.jar
+apache-maven-3.6.3/lib/plexus-utils-3.2.1.jar
+apache-maven-3.6.3/lib/plexus-sec-dispatcher-1.4.jar
+apache-maven-3.6.3/lib/plexus-cipher-1.7.jar
+apache-maven-3.6.3/lib/slf4j-api-1.7.29.jar
+apache-maven-3.6.3/lib/commons-lang3-3.8.1.jar
+apache-maven-3.6.3/lib/maven-core-3.6.3.jar
+apache-maven-3.6.3/lib/maven-repository-metadata-3.6.3.jar
+apache-maven-3.6.3/lib/maven-artifact-3.6.3.jar
+apache-maven-3.6.3/lib/maven-resolver-provider-3.6.3.jar
+apache-maven-3.6.3/lib/maven-resolver-impl-1.4.1.jar
+apache-maven-3.6.3/lib/maven-resolver-spi-1.4.1.jar
+apache-maven-3.6.3/lib/org.eclipse.sisu.inject-0.3.4.jar
+apache-maven-3.6.3/lib/plexus-component-annotations-2.1.0.jar
+apache-maven-3.6.3/lib/maven-compat-3.6.3.jar
+apache-maven-3.6.3/lib/plexus-interpolation-1.25.jar
+apache-maven-3.6.3/lib/wagon-provider-api-3.3.4.jar
+apache-maven-3.6.3/lib/org.eclipse.sisu.plexus-0.3.4.jar
+apache-maven-3.6.3/lib/cdi-api-1.0.jar
+apache-maven-3.6.3/lib/commons-cli-1.4.jar
+apache-maven-3.6.3/lib/wagon-http-3.3.4-shaded.jar
+apache-maven-3.6.3/lib/jsoup-1.12.1.jar
+apache-maven-3.6.3/lib/jcl-over-slf4j-1.7.29.jar
+apache-maven-3.6.3/lib/wagon-file-3.3.4.jar
+apache-maven-3.6.3/lib/maven-resolver-connector-basic-1.4.1.jar
+apache-maven-3.6.3/lib/maven-resolver-transport-wagon-1.4.1.jar
+apache-maven-3.6.3/lib/maven-slf4j-provider-3.6.3.jar
+apache-maven-3.6.3/lib/jansi-1.17.1.jar
+  1 9283k    1  119k    0     0   116k      0  0:01:19  0:00:01  0:01:18  116k 55 9283k   55 5137k    0     0  2540k      0  0:00:03  0:00:02  0:00:01 2539k100 9283k  100 9283k    0     0  3664k      0  0:00:02  0:00:02 --:--:-- 3663k
+[36mINFO[0m[0272] Taking snapshot of full filesystem...        
+[36mINFO[0m[0289] ENV M2_HOME /opt/apache-maven-$MAVEN_VERSION 
+[36mINFO[0m[0289] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0289] ENV maven.home $M2_HOME                      
+[36mINFO[0m[0289] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0289] ENV M2 $M2_HOME/bin                          
+[36mINFO[0m[0289] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0289] ENV PATH $M2:$PATH                           
+[36mINFO[0m[0289] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0289] ENV JAVA_HOME /opt/jdk-14.0.1                
+[36mINFO[0m[0289] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0289] ENV OPENAPI_VERSION 4.0.0                    
+[36mINFO[0m[0289] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0289] ENV OPENAPI_GHREPO openapitools/openapi-generator 
+[36mINFO[0m[0289] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0289] ENV OPENAPI_GROUPID org.openapitools         
+[36mINFO[0m[0289] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0289] ENV OPENAPI_ARTIFACTID openapi-generator-cli 
+[36mINFO[0m[0289] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0289] ENV OPENAPI_JAR $OPENAPI_ARTIFACTID-$OPENAPI_VERSION.jar 
+[36mINFO[0m[0289] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0289] ENV OPENAPI_REPO central::default::https://repo1.maven.org/maven2/ 
+[36mINFO[0m[0289] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0289] ENV OPENAPI_DIR /usr/openapi                 
+[36mINFO[0m[0289] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0289] ENV OPENAPI_CODEGEN_BIN $OPENAPI_DIR/$OPENAPI_JAR 
+[36mINFO[0m[0289] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0289] RUN mkdir -p $OPENAPI_DIR                    
+[36mINFO[0m[0289] cmd: /bin/sh                                 
+[36mINFO[0m[0289] args: [-c mkdir -p $OPENAPI_DIR]             
+[36mINFO[0m[0289] Pushing layer 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:709d8802c010d242b3ac5014a57dfefb02ec854a8a931210bc85b8b8124619ac to cache now 
+[36mINFO[0m[0289] Taking snapshot of full filesystem...        
+2020/07/28 17:57:22 pushed blob: sha256:b2391e328c0cfe726ee476420ebf42d34ce299b05e94ffdb8ec139113620423a
+2020/07/28 17:57:22 pushed blob: sha256:2be61f16b3bef6c7b368b54ea9944d66712a145a731f0990dd08f16f238e3626
+2020/07/28 17:57:22 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:709d8802c010d242b3ac5014a57dfefb02ec854a8a931210bc85b8b8124619ac: digest: sha256:833130f62632ad89ddbd9df09ebc1fce25ddeccabb287bd609445128454f0f83 size: 429
+[36mINFO[0m[0305] RUN mvn --no-transfer-progress org.apache.maven.plugins:maven-dependency-plugin:2.9:get -DremoteRepositories=$OPENAPI_REPO -Dartifact=$OPENAPI_GROUPID:$OPENAPI_ARTIFACTID:$OPENAPI_VERSION -Dtransitive=false -Ddest=$OPENAPI_CODEGEN_BIN 
+[36mINFO[0m[0305] cmd: /bin/sh                                 
+[36mINFO[0m[0305] args: [-c mvn --no-transfer-progress org.apache.maven.plugins:maven-dependency-plugin:2.9:get -DremoteRepositories=$OPENAPI_REPO -Dartifact=$OPENAPI_GROUPID:$OPENAPI_ARTIFACTID:$OPENAPI_VERSION -Dtransitive=false -Ddest=$OPENAPI_CODEGEN_BIN] 
+[36mINFO[0m[0305] Pushing layer 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:301cc0f2473531da497359e7f3eea7a4b6c57a4e2b7531c0c702d5b46957ecf5 to cache now 
+2020/07/28 17:57:37 pushed blob: sha256:651062037eb5eec917c5f9548855aaeff89f1463f7d8023de5797a9f90d9e0d4
+2020/07/28 17:57:37 pushed blob: sha256:2c471807d7a045c65a171c1f1fb02e4efc96280ad3d075984b8030064bcf3a9a
+2020/07/28 17:57:37 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:301cc0f2473531da497359e7f3eea7a4b6c57a4e2b7531c0c702d5b46957ecf5: digest: sha256:f77c97216508e261f32b2e1602818b00dbe7e80398ff10278a2c8175332a29c7 size: 424
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.apache.maven:standalone-pom >-------------------
+[INFO] Building Maven Stub Project (No POM) 1
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.9:get (default-cli) @ standalone-pom ---
+[INFO] Resolving org.openapitools:openapi-generator-cli:jar:4.0.0
+[WARNING] destination/dest parameter is deprecated: it will disappear in future version.
+[INFO] Copying /root/.m2/repository/org/openapitools/openapi-generator-cli/4.0.0/openapi-generator-cli-4.0.0.jar to /usr/openapi/openapi-generator-cli-4.0.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:14 min
+[INFO] Finished at: 2020-07-28T17:58:53Z
+[INFO] ------------------------------------------------------------------------
+[36mINFO[0m[0381] Taking snapshot of full filesystem...        
+[36mINFO[0m[0399] ENV JX_VERSION 2.1.112                       
+[36mINFO[0m[0399] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0399] RUN curl -f -L https://github.com/*************/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ 
+[36mINFO[0m[0399] cmd: /bin/sh                                 
+[36mINFO[0m[0399] args: [-c curl -f -L https://github.com/*************/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/] 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0[36mINFO[0m[0399] Pushing layer 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:e071e4308679a897059dfcd0e4889730f6708ca696287b4ce3198613f0107bdd to cache now 
+100   634  100   634    0     0   1525      0 --:--:-- --:--:-- --:--:--  1527
+2020/07/28 17:59:12 pushed blob: sha256:e40657a4a53b9375715d220058a7af914df5fabc1e7cd92101275007ac4d8cf1
+LICENSE
+README.md
+changelog.md
+**
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0 67.8M    0 68143    0     0  41320      0  0:28:41  0:00:01  0:28:40 66094  4 67.8M    4 3163k    0     0  1216k      0  0:00:57  0:00:02  0:00:55 1594k2020/07/28 17:59:14 pushed blob: sha256:e97e8fe84edd85c07769b122fb1a1848beba915533047eec8ad6bf689326d774
+2020/07/28 17:59:15 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:e071e4308679a897059dfcd0e4889730f6708ca696287b4ce3198613f0107bdd: digest: sha256:77e6da39dc079027a44ca6bfdc41909ab6157984f18e56542cf82f05c298f5e1 size: 429
+ 16 67.8M   16 11.0M    0     0  3080k      0  0:00:22  0:00:03  0:00:19 3700k 26 67.8M   26 18.0M    0     0  4014k      0  0:00:17  0:00:04  0:00:13 4635k 38 67.8M   38 26.4M    0     0  4732k      0  0:00:14  0:00:05  0:00:09 5306k 49 67.8M   49 33.3M    0     0  5143k      0  0:00:13  0:00:06  0:00:07 6828k 61 67.8M   61 41.7M    0     0  5515k      0  0:00:12  0:00:07  0:00:05 7689k 72 67.8M   72 49.1M    0     0  5803k      0  0:00:11  0:00:08  0:00:03 7810k 83 67.8M   83 56.8M    0     0  6061k      0  0:00:11  0:00:09  0:00:02 7948k 96 67.8M   96 65.6M    0     0  6276k      0  0:00:11  0:00:10  0:00:01 8043k100 67.8M  100 67.8M    0     0  6342k      0  0:00:10  0:00:10 --:--:-- 8189k
+[36mINFO[0m[0411] Taking snapshot of full filesystem...        
+[36mINFO[0m[0435] Pushing layer 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:322374469011e4739d0b33596afbdc5e9a7cacfc9b761d838c30c6a7dfd9468f to cache now 
+[36mINFO[0m[0435] CMD ["mvn","-version"]                       
+[36mINFO[0m[0435] No files changed in this command, skipping snapshotting. 
+2020/07/28 17:59:47 pushed blob: sha256:184a6f9c4f5ef7ee9ffa015e367d4f6e762cbb9962d98b049f5f9dfb7c7aaeae
+2020/07/28 17:59:56 pushed blob: sha256:5c1f7283b21d6350ab46b798e48fae1a3a10c784cf555ff6254ebe29e98cfdae
+2020/07/28 17:59:57 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/cache:322374469011e4739d0b33596afbdc5e9a7cacfc9b761d838c30c6a7dfd9468f: digest: sha256:710619dbab65de8568f4213f2d1468a5d2181203e757430704887b29617982a8 size: 429
+2020/07/28 17:59:57 pushed blob: sha256:e78beae9c1edb17e6cbb9fc402e065793782ccb84e45b990ae3e08fcc0a92640
+2020/07/28 17:59:57 pushed blob: sha256:2c471807d7a045c65a171c1f1fb02e4efc96280ad3d075984b8030064bcf3a9a
+2020/07/28 17:59:57 pushed blob: sha256:91ea00aae9fee626637140bbc090b746a9fe5b304bd50669f266228da7ec131a
+2020/07/28 17:59:57 pushed blob: sha256:d35c4554b0d14430d78d9ecc4026f16b96227bd3012b069fdae441bd7addc97c
+2020/07/28 18:00:00 pushed blob: sha256:b2391e328c0cfe726ee476420ebf42d34ce299b05e94ffdb8ec139113620423a
+2020/07/28 18:00:01 pushed blob: sha256:e97e8fe84edd85c07769b122fb1a1848beba915533047eec8ad6bf689326d774
+2020/07/28 18:00:03 pushed blob: sha256:524b0c1e57f8ee5fee01a1decba2f301c324a6513ca3551021264e3aa7341ebc
+2020/07/28 18:00:10 pushed blob: sha256:e015cbee56fd4346645a199d23c397de648dc99a0d6dead66693bffe3da6ce43
+2020/07/28 18:00:12 pushed blob: sha256:5c1f7283b21d6350ab46b798e48fae1a3a10c784cf555ff6254ebe29e98cfdae
+2020/07/28 18:00:16 pushed blob: sha256:1c476ee97ddde65272159e992cc83977ddd59a597643b15a2092636d63939d2d
+2020/07/28 18:00:18 pushed blob: sha256:29c0f851a0ba6305aec56b10aa4d1c8c6b11076c85af092356b5b3103b21f75f
+2020/07/28 18:00:22 pushed blob: sha256:a3181543eb196c7ac196ce759b509da6e5ac619fe04cd24813d3c5cb442a0587
+2020/07/28 18:00:22 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-maven-java14:2.1.113-4: digest: sha256:17301f2026eee1a57bdcf339068f5eeb84958c855190876b6297a3407b4fdc6e size: 2076
+2020/07/28 18:00:22 existing blob: sha256:e78beae9c1edb17e6cbb9fc402e065793782ccb84e45b990ae3e08fcc0a92640
+2020/07/28 18:00:22 existing blob: sha256:a3181543eb196c7ac196ce759b509da6e5ac619fe04cd24813d3c5cb442a0587
+2020/07/28 18:00:22 existing blob: sha256:e015cbee56fd4346645a199d23c397de648dc99a0d6dead66693bffe3da6ce43
+2020/07/28 18:00:22 existing blob: sha256:2c471807d7a045c65a171c1f1fb02e4efc96280ad3d075984b8030064bcf3a9a
+2020/07/28 18:00:22 existing blob: sha256:29c0f851a0ba6305aec56b10aa4d1c8c6b11076c85af092356b5b3103b21f75f
+2020/07/28 18:00:22 existing blob: sha256:1c476ee97ddde65272159e992cc83977ddd59a597643b15a2092636d63939d2d
+2020/07/28 18:00:22 existing blob: sha256:d35c4554b0d14430d78d9ecc4026f16b96227bd3012b069fdae441bd7addc97c
+2020/07/28 18:00:22 existing blob: sha256:b2391e328c0cfe726ee476420ebf42d34ce299b05e94ffdb8ec139113620423a
+2020/07/28 18:00:22 existing blob: sha256:91ea00aae9fee626637140bbc090b746a9fe5b304bd50669f266228da7ec131a
+2020/07/28 18:00:22 existing blob: sha256:e97e8fe84edd85c07769b122fb1a1848beba915533047eec8ad6bf689326d774
+2020/07/28 18:00:22 existing blob: sha256:524b0c1e57f8ee5fee01a1decba2f301c324a6513ca3551021264e3aa7341ebc
+2020/07/28 18:00:22 existing blob: sha256:5c1f7283b21d6350ab46b798e48fae1a3a10c784cf555ff6254ebe29e98cfdae
+2020/07/28 18:00:23 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-maven-java14:latest: digest: sha256:17301f2026eee1a57bdcf339068f5eeb84958c855190876b6297a3407b4fdc6e size: 2076
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-2j4n8-4[0m stage [32mbuild-base[0m and container [32mstep-build-and-push-maven-graalvm[0m
+Unable to retrieve container logs for docker://a9d1fe8d8723d4e2a479064b49005be441b66fb17b85ca21d82d38e6b1c34027
+[31m
+Pipeline failed on stage 'build-base' : container 'step-build-and-push-maven-graalvm'. The execution of the pipeline has stopped.[0m
