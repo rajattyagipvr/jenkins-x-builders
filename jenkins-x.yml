@@ -87,12 +87,12 @@ pipelineConfig:
                   command: ./replace-versions.sh
 
                 # cache base images
-                - name: warm-cache
-                  image: gcr.io/kaniko-project/warmer:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
-                  command: /kaniko/warmer
-                  args:
-                    - --cache-dir=/workspace
-                    - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93
+                # - name: warm-cache
+                #   image: gcr.io/kaniko-project/warmer:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+                #   command: /kaniko/warmer
+                #   args:
+                #     - --cache-dir=/workspace
+                #     - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93
 
                 # builders
                 - name: build-and-push-maven-java11
@@ -174,12 +174,12 @@ pipelineConfig:
                     command: ./replace-versions.sh
 
                   # cache base images
-                  - name: warm-cache
-                    image: gcr.io/kaniko-project/warmer:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
-                    command: /kaniko/warmer
-                    args:
-                      - --cache-dir=/workspace
-                      - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93
+                  # - name: warm-cache
+                  #   image: gcr.io/kaniko-project/warmer:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+                  #   command: /kaniko/warmer
+                  #   args:
+                  #     - --cache-dir=/workspace
+                  #     - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93
                   - name: build-and-push-go-maven
                     command: /kaniko/executor
                     args:
@@ -240,12 +240,12 @@ pipelineConfig:
                     command: ./replace-versions.sh
 
                   # cache base images
-                  - name: warm-cache
-                    image: gcr.io/kaniko-project/warmer:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
-                    command: /kaniko/warmer
-                    args:
-                      - --cache-dir=/workspace
-                      - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93
+                  # - name: warm-cache
+                  #   image: gcr.io/kaniko-project/warmer:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+                  #   command: /kaniko/warmer
+                  #   args:
+                  #     - --cache-dir=/workspace
+                  #     - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93
                   - name: build-and-push-gradle
                     command: /kaniko/executor
                     args:
@@ -315,14 +315,14 @@ pipelineConfig:
                     command: ./replace-versions.sh
 
                   # cache base images
-                  - name: warm-cache
-                    image: gcr.io/kaniko-project/warmer:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
-                    command: /kaniko/warmer
-                    args:
-                      - --cache-dir=/workspace
-                      - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-swiftbase:0.0.93
-                      - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93
-                      - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-rubybase:0.0.93
+                  # - name: warm-cache
+                  #   image: gcr.io/kaniko-project/warmer:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+                  #   command: /kaniko/warmer
+                  #   args:
+                  #     - --cache-dir=/workspace
+                  #     - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-swiftbase:0.0.93
+                  #     - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93
+                  #     - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-rubybase:0.0.93
                   - name: build-and-push-jx
                     command: /kaniko/executor
                     args:
@@ -392,12 +392,12 @@ pipelineConfig:
                     command: ./replace-versions.sh
 
                   # cache base images
-                  - name: warm-cache
-                    image: gcr.io/kaniko-project/warmer:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
-                    command: /kaniko/warmer
-                    args:
-                      - --cache-dir=/workspace
-                      - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93
+                  # - name: warm-cache
+                  #   image: gcr.io/kaniko-project/warmer:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+                  #   command: /kaniko/warmer
+                  #   args:
+                  #     - --cache-dir=/workspace
+                  #     - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93
                   - name: build-and-push-python37
                     command: /kaniko/executor
                     args:
@@ -546,14 +546,14 @@ pipelineConfig:
                 value: jenkins-x-bot
             steps:
             # cache base images
-            - name: warm-cache
-              image: gcr.io/kaniko-project/warmer:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
-              command: /kaniko/warmer
-              args:
-                - --cache-dir=/workspace
-                - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-swiftbase:0.0.93
-                - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93
-                - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-rubybase:0.0.93
+            # - name: warm-cache
+            #   image: gcr.io/kaniko-project/warmer:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+            #   command: /kaniko/warmer
+            #   args:
+            #     - --cache-dir=/workspace
+            #     - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-swiftbase:0.0.93
+            #     - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:0.0.93
+            #     - --image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-rubybase:0.0.93
 
             - name: build-and-push-jx2
               command: /kaniko/executor
