@@ -478,7 +478,7 @@ pipelineConfig:
         #         memory: 12Gi
         #         cpu: 2
         options:
-          distributeParallelAcrossNodes: true
+          #distributeParallelAcrossNodes: true
           containerOptions:
             env:
             - name: DOCKER_REGISTRY
