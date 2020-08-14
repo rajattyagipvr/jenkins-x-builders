@@ -1,0 +1,21 @@
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-q2rhs-8[0m stage [32mbuild-base[0m and container [32mstep-credential-initializer-zd6p4[0m
+{"level":"warn","ts":1597433877.9056149,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1597433877.9059188,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-q2rhs-8[0m stage [32mbuild-base[0m and container [32mstep-working-dir-initializer-h52tj[0m
+{"level":"warn","ts":1597433878.8654835,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1597433878.8737676,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-q2rhs-8[0m stage [32mbuild-base[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-q2rhs-8[0m stage [32mbuild-base[0m and container [32mstep-create-dir-workspace-7q5jv[0m
+{"level":"warn","ts":1597433891.8527877,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1597433891.8537884,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p source\"; output "}
+
+Showing logs for build [32mrajattyagipvr-jenkins-x-builder-q2rhs-8[0m stage [32mbuild-base[0m and container [32mstep-git-source-rajattyagipvr-jenkins-x-builder-q2rhs-hgkcf[0m
+{"level":"warn","ts":1597435898.738421,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"error","ts":1597435898.7846472,"logger":"fallback-logger","caller":"git/git.go:40","msg":"Error running git [remote add origin https://github.com/*************/jenkins-x-builders.git]: exit status 128\nfatal: remote origin already exists.\n","stacktrace":"github.com/tektoncd/pipeline/pkg/git.run\n\t/Users/abayer/go/src/github.com/tektoncd/pipeline/pkg/git/git.go:40\ngithub.com/tektoncd/pipeline/pkg/git.Fetch\n\t/Users/abayer/go/src/github.com/tektoncd/pipeline/pkg/git/git.go:88\nmain.main\n\t/Users/abayer/go/src/github.com/tektoncd/pipeline/cmd/git-init/main.go:39\nruntime.main\n\t/usr/local/Cellar/go/1.12.4/libexec/src/runtime/proc.go:200"}
+{"level":"fatal","ts":1597435898.7847419,"logger":"fallback-logger","caller":"git-init/main.go:40","msg":"Error fetching git repository: exit status 128","stacktrace":"main.main\n\t/Users/abayer/go/src/github.com/tektoncd/pipeline/cmd/git-init/main.go:40\nruntime.main\n\t/usr/local/Cellar/go/1.12.4/libexec/src/runtime/proc.go:200"}
+[31m
+Pipeline failed on stage 'build-base' : container 'step-git-source-rajattyagipvr-jenkins-x-builder-q2rhs-hgkcf'. The execution of the pipeline has stopped.[0m
